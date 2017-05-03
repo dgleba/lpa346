@@ -7,6 +7,9 @@ class <%= controller_class_name %>Controller < ApplicationController
 before_filter :authenticate_user!
   # before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
 
+  #cancancan
+  load_and_authorize_resource
+
 
   # cancancan..
   #load_and_authorize_resource :<%= singular_table_name %>
