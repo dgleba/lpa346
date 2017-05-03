@@ -64,3 +64,4 @@ gem 'kaminari'
 gem 'ransack'
 gem 'bootstrap-kaminari-views'
 gem "devise"
+gem 'jwt'
