@@ -1,0 +1,24 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @country_of_origin.name %>
+</p>
+
+<p>
+  <strong>Fdate:</strong>
+  <%= @country_of_origin.fdate %>
+</p>
+
+<p>
+  <strong>Active status:</strong>
+  <%= @country_of_origin.active_status %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @country_of_origin.sort %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_country_of_origin_path(@country_of_origin), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
+<%= link_to 'Back', country_of_origins_path, class: "btn btn-default" %>

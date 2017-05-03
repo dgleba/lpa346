@@ -1,0 +1,2 @@
+class Pfeature < ApplicationRecord
+end
