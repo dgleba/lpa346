@@ -66,6 +66,6 @@ before_filter :authenticate_user!
 
   # Only allow a trusted parameter "white list" through.
   def product_params
-    params.require(:product).permit(:name, :country_of_origin_id, :pdate, :active_status, :sort)
+    params.require(:product).permit(:name, :country_of_origin_id, :pdate, :active_status, :sort, :pfeature_ids=> [])
   end
 end
