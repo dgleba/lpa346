@@ -10,7 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503194508) do
+ActiveRecord::Schema.define(version: 50161230223301) do
+
+  create_table "country_of_origins", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "fdate"
+    t.integer  "active_status"
+    t.integer  "sort"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "pfeatures", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "fdate"
+    t.integer  "active_status"
+    t.integer  "sort"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "product_features", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.integer  "pfeature_id"
+    t.integer  "active_status"
+    t.integer  "sort"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["pfeature_id"], name: "index_product_features_on_pfeature_id"
+    t.index ["product_id"], name: "index_product_features_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "country_of_origin_id"
+    t.datetime "pdate"
+    t.integer  "active_status"
+    t.integer  "sort"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["country_of_origin_id"], name: "index_products_on_country_of_origin_id"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -35,7 +76,7 @@ ActiveRecord::Schema.define(version: 20170503194508) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.integer  "role_id"
+    t.integer  "role_id",                default: 7
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
