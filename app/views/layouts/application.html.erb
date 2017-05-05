@@ -31,7 +31,16 @@
             </li>
           </ul>
 
+          
         <ul class="nav navbar-nav navbar-right">
+        
+        <li >
+        <%= link_to "New LPA", new_survey_path, :class => "btn btn-secondary " %>
+        </li>
+        <li>
+        <%= link_to "Administer", rails_admin.dashboard_path, :class => "btn btn-secondary " %>
+        </li>
+
           <%= render 'devise/menu/login_items' %>
         </ul>
        
