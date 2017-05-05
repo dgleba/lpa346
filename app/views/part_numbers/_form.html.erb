@@ -1,0 +1,32 @@
+<%= form_for(part_number) do |f| %>
+  <% if part_number.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(part_number.errors.count, "error") %> prohibited this part_number from being saved:</h2>
+
+      <ul>
+      <% part_number.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sort %>
+    <%= f.number_field :sort %>
+  </div>
+
+  <div class="field">
+    <%= f.label :active_status %>
+    <%= f.number_field :active_status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

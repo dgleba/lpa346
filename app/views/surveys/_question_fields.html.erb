@@ -1,0 +1,17 @@
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label "Title:"%><%= f.text_field :title, class: 'form-control' %>
+
+    <%= f.label "Type:"%><%= f.select :qtype, [
+      ["Short Answer", "short_answer"],
+      ["Yes/No", "multiple_choice"],
+      ["Part Number Select", "select_part_number"]
+    ] %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Question Special Note:"%><%= f.text_field :question_note, class: 'form-control' %>
+  </div>
+
+  <%= link_to_remove_association "remove question", f %>
+</div>

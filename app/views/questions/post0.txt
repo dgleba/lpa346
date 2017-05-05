@@ -1,0 +1,36 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-04-24[Apr-Mon]22-26PM
+
+
+Started POST "/answers" for 192.168.88.94 at 2017-04-24 22:23:48 -0400
+Cannot render console from 192.168.88.94! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AnswersController#create as HTML
+
+
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mBclWI0cXRWOcfCicDg/NuDVNBsqPqUQ4qve+8MQjmpR0G/XMKd8EvnP9F3jZd0fdSaFRQ/SLc8bg7waTW4DSQ==", 
+  "survey_id"=>"1", "answers"=>{"1"=>{"1"=>"a"}, "2"=>{"1"=>"No", "2"=>"b"}, "3"=>{"1"=>"c"}}, 
+  "commit"=>"Submit Survey"}
+  
+  
+  Survey Load (1.2ms)  SELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = ? LIMIT ?  [["id", 1], ["LIMIT", 1]]
+  Question Load (1.1ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."survey_id" = ? AND "questions"."id" = ? LIMIT ?  [["survey_id", 1], ["id", 1], ["LIMIT", 1]]
+   (0.0ms)  begin transaction
+  SQL (4.5ms)  INSERT INTO "answers" ("body", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["body", "#<ActionController::Parameters:0x007f97e059c660>"], ["question_id", 1], ["created_at", 2017-04-25 02:23:48 UTC], ["updated_at", 2017-04-25 02:23:48 UTC]]
+   (2.6ms)  commit transaction
+  Question Load (1.5ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."survey_id" = ? AND "questions"."id" = ? LIMIT ?  [["survey_id", 1], ["id", 2], ["LIMIT", 1]]
+   (0.1ms)  begin transaction
+  SQL (6.4ms)  INSERT INTO "answers" ("body", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["body", "#<ActionController::Parameters:0x007f97e07a7928>"], ["question_id", 2], ["created_at", 2017-04-25 02:23:48 UTC], ["updated_at", 2017-04-25 02:23:48 UTC]]
+   (3.2ms)  commit transaction
+  Question Load (2.1ms)  SELECT  "questions".* FROM "questions" WHERE "questions"."survey_id" = ? AND "questions"."id" = ? LIMIT ?  [["survey_id", 1], ["id", 3], ["LIMIT", 1]]
+   (0.0ms)  begin transaction
+  SQL (4.5ms)  INSERT INTO "answers" ("body", "question_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["body", "#<ActionController::Parameters:0x007f97e0a5b390>"], ["question_id", 3], ["created_at", 2017-04-25 02:23:48 UTC], ["updated_at", 2017-04-25 02:23:48 UTC]]
+   (2.1ms)  commit transaction
+Redirected to http://v206x2016103022:3001/surveys
+Completed 302 Found in 43ms (ActiveRecord: 29.3ms)
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+

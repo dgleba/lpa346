@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
@@ -38,6 +37,12 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -55,8 +60,7 @@ gem 'faker'
 gem 'populator'
 gem 'thor', '0.19.1'
 # 
-# 
-# # https://github.com/twbs/bootstrap-sass
+# https://github.com/twbs/bootstrap-sass
 # 
 gem 'simple_form'
 gem 'bootstrap-sass'
@@ -68,3 +72,13 @@ gem 'jwt'
 gem "cancancan"
 gem 'rails_admin'
 gem 'select2-rails'
+gem 'cocoon'
+gem 'bootstrap', '4.0.0.alpha4'
+
+# gem 'bootstrap', '4.0.0.alpha4'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
+gem 'rails_12factor', group: :production
+

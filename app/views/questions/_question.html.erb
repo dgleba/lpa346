@@ -1,0 +1,29 @@
+<div class="item">
+  <div class="well">
+    <div class="card card-block">
+      <h6 class="card-title"><%= question.title %></h6>
+
+      <div id="answer">
+        <small>Answer</small>
+        <% question.answers.each do |answr| %>
+        <% end %>
+      </div>
+
+      <% if question.qtype == "short_answer" || question.qtype == "select_part_number" %>
+        <%= text_field_tag "answers[#{question.id}]" %>
+      <% elsif question.qtype == "multiple_choice" %>
+        <%= radio_button_tag "answers[#{question.id}][yes_no]", "Yes" %>
+        <%= label_tag :yes_label, "Yes" %>
+        <%= radio_button_tag "answers[#{question.id}][yes_no]", "No" %>
+        <%= label_tag :no_label, "No" %>
+
+        <div>
+          Issue: <%= text_field_tag "answers[#{question.id}][issue_description]"  %>
+        </div>
+        <div>
+          Action Taken: <%= text_field_tag "answers[#{question.id}][action_taken]"  %>
+        </div>
+     <% end %>
+    </div>
+  </div>
+</div>

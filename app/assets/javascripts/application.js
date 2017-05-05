@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require bootstrap-sprockets
 //= require select2
+//= require cocoon
+//= require tether
+//= require bootstrap
+//= require_tree .

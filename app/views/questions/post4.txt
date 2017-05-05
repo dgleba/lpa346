@@ -1,0 +1,54 @@
+ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2017-04-24_Mon_23.07-PM
+
+<div class="item">
+  <div class="well">
+    <div class="card card-block">
+      <h6 class="card-title"><%= question.title %></h6>
+
+      <div id="answer">
+        <small>Answer</small>
+        <% question.answers.each do |answr| %>
+        <% end %>
+      </div>
+
+      <% if question.qtype == "short_answer" %>
+        <%= text_field_tag "answers[#{question.id}][]" %>
+      <% elsif question.qtype == "multiple_choice" %>
+        <%= radio_button_tag "answers[#{question.id}][]", "Yes" %>
+        <%= label_tag :yes_label, "Yes" %>
+        <%= radio_button_tag "answers[#{question.id}][]", "No" %>
+        <%= label_tag :no_label, "No" %>
+        
+        <div >
+          Issue: <%= text_field_tag "answers[#{question.id}][]"  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+Started POST "/answers" for 192.168.88.94 at 2017-04-24 23:07:01 -0400
+Cannot render console from 192.168.88.94! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3gaNRhfrFhsjSKSSuBkqLxvNVm+TOeNa9cO2kexrZ5IXwcfJqlA3HFT2oG0rRMgGjj7nMbbVa4UM69RwYhXqsQ==", 
+  "survey_id"=>"1", "answers"=>{"1"=>["31"], "2"=>["No", "32"], "3"=>["33"]}, 
+  "commit"=>"Submit Survey"}
+
+  
+  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-04-24[Apr-Mon]23-09PM
+
+
+"["33"]"
+"["No", "32"]"
+"["31"]"
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

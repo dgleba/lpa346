@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @part_number.name %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @part_number.sort %>
+</p>
+
+<p>
+  <strong>Active status:</strong>
+  <%= @part_number.active_status %>
+</p>
+
+<%= link_to 'Edit', edit_part_number_path(@part_number) %> |
+<%= link_to 'Back', part_numbers_path %>

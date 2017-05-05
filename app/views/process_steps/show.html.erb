@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @process_step.name %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @process_step.sort %>
+</p>
+
+<p>
+  <strong>Active status:</strong>
+  <%= @process_step.active_status %>
+</p>
+
+<%= link_to 'Edit', edit_process_step_path(@process_step) %> |
+<%= link_to 'Back', process_steps_path %>

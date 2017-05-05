@@ -1,0 +1,32 @@
+<%= form_for(process_step) do |f| %>
+  <% if process_step.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(process_step.errors.count, "error") %> prohibited this process_step from being saved:</h2>
+
+      <ul>
+      <% process_step.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sort %>
+    <%= f.number_field :sort %>
+  </div>
+
+  <div class="field">
+    <%= f.label :active_status %>
+    <%= f.number_field :active_status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,47 @@
+
+
+http://stackoverflow.com/questions/12188436/ruby-on-rails-how-do-i-create-multple-text-field-tags-that-store-the-values-int
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-04-24[Apr-Mon]23-00PM
+
+Started POST "/answers" for 192.168.88.94 at 2017-04-24 22:59:33 -0400
+Cannot render console from 192.168.88.94! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AnswersController#create as HTML
+  Parameters: {"utf8"=>"?", "authenticity_token"=>"caf3U5cI2KkTXZekfbz1v0MdRCPhXxFCsWKOOC1iilu4YL3cKrP5rmTjk1vu4ReW1u71fcSzmZ1ISuzZoxwHeA==", 
+  "survey_id"=>"1", "answers"=>{"1"=>{"1"=>"25"}, "2"=>{"1"=>"No", "2"=>"iss26"}, "3"=>{"1"=>"27"}}, "commit"=>"Submit Survey"}
+
+
+
+
+<div class="item">
+  <div class="well">
+    <div class="card card-block">
+      <h6 class="card-title"><%= question.title %></h6>
+
+      <div id="answer">
+        <small>Answer</small>
+        <% question.answers.each do |answr| %>
+        <% end %>
+      </div>
+
+      <% if question.qtype == "short_answer" %>
+        <%= text_field_tag "answers[#{question.id}][1]" %>
+      <% elsif question.qtype == "multiple_choice" %>
+        <%= radio_button_tag "answers[#{question.id}][1]", "Yes" %>
+        <%= label_tag :yes_label, "Yes" %>
+        <%= radio_button_tag "answers[#{question.id}][1]", "No" %>
+        <%= label_tag :no_label, "No" %>
+        
+        <div >
+          Issue: <%= text_field_tag "answers[#{question.id}][2]"  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
