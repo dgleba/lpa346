@@ -1,21 +1,20 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  # ==> LDAP Configuration 
-  #
-  # David Gleba 2016-07-27_Wed_12.07-PM works..
+  # ==> LDAP Configuration
   # config.ldap_logger = true
-  config.ldap_create_user = true
-  config.ldap_auth_username_builder = Proc.new() {|attribute, login, ldap| "#{login}@stackpole.ca"}
+  # config.ldap_create_user = false
   # config.ldap_update_password = true
   # config.ldap_config = "#{Rails.root}/config/ldap.yml"
   # config.ldap_check_group_membership = false
   # config.ldap_check_group_membership_without_admin = false
-  # config.ldap_check_attributes = true
-  # config.ldap_use_admin_to_bind = true
+  # config.ldap_check_attributes = false
+  # config.ldap_check_attributes_presence = false
+  # config.ldap_use_admin_to_bind = false
   # config.ldap_ad_group_check = false
 
-  
+
+
   config.warden do |manager|
    # Registering your new Strategy
    manager.strategies.add(:jwt, Devise::Strategies::JsonWebToken)
@@ -24,7 +23,7 @@ Devise.setup do |config|
    manager.default_strategies(scope: :user).unshift :jwt
   end
   
-
+  
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -32,7 +31,6 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '7b42f6223e82afec4ad34e478eb5c5d8e2133722be30ca7c4f19f5f3595619bd69f6df3705574c52e684311c7b515d5307346dbc21256719a3ed24de18aba21a'
    config.secret_key = '1b444ef2cbaa2df3f4a2e7a53778a6aec04345bd680ce81de52a3256c3d1dfa73cdcc3d18201a6b0317da80b8c5fe6e3dd5302ff0355f6011dd4fad82802e748'
-   
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -134,9 +132,12 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'ba62566e7524e6388b307c72f89bd8af37cc8e72685b447432b4b59dbd529d9bf6570a3f0aaca66f158168358f931cbf8921b2b8a7509eba00a2115e2c251a5b'
+  # config.pepper = '5732b91c8f524448beebc80d21cc7e1f6663610f4d8043ef39a64b638552f2165617c625dc1d8c879e14d4bb96b6a51e2b7131bd07fdc8f0ce11ced8e6f27a4d'
 
-  # Send a notification email when the user's password is changed
+  # Send a notification to the original email when the user's email is changed.
+  # config.send_email_changed_notification = false
+
+  # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable
@@ -180,13 +181,15 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 4..128
+  config.password_length = 1..128  
+
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  #config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
-  config.email_regexp = /./
+  # config.email_regexp = /\A[^@\s]+@[^@\s]+\z/ 
+config.email_regexp = /./ 
+
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
