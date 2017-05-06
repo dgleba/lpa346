@@ -156,3 +156,8 @@ sudo tee /etc/logrotate.d/raillog_$prjname <<EOF
 }
 EOF
 #
+
+
+# bundle exec rake db:migrate RAILS_ENV=production
+# bundle exec rake db:seed RAILS_ENV=production
+

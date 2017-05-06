@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.0.2'
+gem 'dotenv-rails'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -62,4 +63,3 @@ source 'https://rails-assets.org' do
 end
 
 gem 'rails_12factor', group: :production
-gem 'dotenv-rails'
