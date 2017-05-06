@@ -63,3 +63,4 @@ source 'https://rails-assets.org' do
 end
 
 gem 'rails_12factor', group: :production
+gem "devise_ldap_authenticatable", :git => "git://github.com/cschiewek/devise_ldap_authenticatable.git"

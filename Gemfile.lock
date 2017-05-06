@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/cschiewek/devise_ldap_authenticatable.git
+  revision: 9f7699d913f715afd4f2a99b80733eda52b1d88a
+  specs:
+    devise_ldap_authenticatable (0.8.6)
+      devise (>= 3.4.1)
+      net-ldap (>= 0.6, != 0.12)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -132,6 +140,7 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     nested_form (0.3.2)
+    net-ldap (0.16.0)
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
@@ -288,6 +297,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   devise
+  devise_ldap_authenticatable!
   dotenv-rails
   factory_girl_rails
   faker
