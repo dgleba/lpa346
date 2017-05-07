@@ -1,5 +1,11 @@
 class SurveysController < ApplicationController
-  before_action :authenticate_user!, :except => [:show, :index]
+before_filter :authenticate_user!
+  # before_action :set_pfeature, only: [:show, :edit, :update, :destroy]
+
+  #cancancan
+  load_and_authorize_resource
+
+  # before_action :authenticate_user!, :except => [:show, :index]
 
   def index
     @surveys = Survey.all
@@ -43,6 +49,7 @@ class SurveysController < ApplicationController
   private
 
   def survey_params
-    params.require(:survey).permit(:title, questions_attributes: [:id, :title, :qtype, :question_note])
+    params.require(:survey).permit(:title, questions_attributes: [:id, :title, :qtype, :question_note], 
+          part_numbers_attributes: [:id, :name, :sort, :active_status] )
   end
 end

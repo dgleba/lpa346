@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :ldap_authenticatable,
-         :recoverable, :rememberable, :trackable
-         #:validatable, :registerable,
+  # :confirmable, :lockable,  and :omniauthable , :timeoutable
+  # devise :ldap_authenticatable,
+  devise :database_authenticatable, :trackable
+         #:validatable, :recoverable, :registerable, :rememberable,
 
   #validates :email, presence: true, uniqueness: true, email: true
   validates :email, presence: true, uniqueness: true 
@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
   
   def lr_create?
     self.role.name == "lr_create"
+  end
+
+  def lr_future4?
+    self.role.name == "lr_future4"
   end
 
   def lr_regular?

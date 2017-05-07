@@ -1,0 +1,5 @@
+
+example:
+
+        <%= select_tag "answers[#{question.id}]",  options_for_select([ "VISA", "MasterCard" ]) %>
+ 

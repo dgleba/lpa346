@@ -1,6 +1,10 @@
 class QuestionsController < ApplicationController
 
-    before_action :authenticate_user!
+before_filter :authenticate_user!
+  # before_action :set_pfeature, only: [:show, :edit, :update, :destroy]
+
+  #cancancan
+  load_and_authorize_resource
 
     def new
       @survey = Survey.find(params[:survey_id])

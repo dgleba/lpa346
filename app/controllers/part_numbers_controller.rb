@@ -1,4 +1,11 @@
 class PartNumbersController < ApplicationController
+
+before_filter :authenticate_user!
+  # before_action :set_pfeature, only: [:show, :edit, :update, :destroy]
+
+  #cancancan
+  load_and_authorize_resource
+
   before_action :set_part_number, only: [:show, :edit, :update, :destroy]
 
   # GET /part_numbers

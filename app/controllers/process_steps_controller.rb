@@ -1,4 +1,10 @@
 class ProcessStepsController < ApplicationController
+before_filter :authenticate_user!
+  # before_action :set_pfeature, only: [:show, :edit, :update, :destroy]
+
+  #cancancan
+  load_and_authorize_resource
+
   before_action :set_process_step, only: [:show, :edit, :update, :destroy]
 
   # GET /process_steps
