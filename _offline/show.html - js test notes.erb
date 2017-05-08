@@ -19,11 +19,15 @@
 </div>
 
 
+
+<br>
+<hr>
+<button onclick="myFunction()"> Tryme:  popup javascript alert for a test</button>
+<p class="tryme2"> Tryme2 </p>
+
 <script>
 //
-// ?? not works.. asks before leaving edited form..
-//
-// http://stackoverflow.com/questions/16322042/jquery-warn-if-leaving-page-without-clicking-the-save-button
+// works.. asks before leaving edited form..
 //
 $(document).ready(function() {
 
@@ -47,11 +51,14 @@ $(document).ready(function() {
 </script>
 
 
-
-<br>
-<hr>
-<button onclick="myFunction()"> Tryme:  popup javascript alert for a test</button>
-<p class="tryme2"> Tryme2 </p>
+<script>
+//no works..
+//http://stackoverflow.com/questions/8870678/rails-check-a-form-is-edited-and-let-user-confirm-page-redirection-or-close
+$('input').change(function() {
+    if( $(this).val() != "" )
+        window.onbeforeunload = "Are you sure you want to leave?";
+});
+</script>
 
 
 <script>
@@ -70,12 +77,61 @@ $(document).ready(function(){
 */
 </script>
 
+
+<script>
+// no works..
+// ask before leaving edited page...
+$(document).ready(function(){
+
+  var edited = false;
+
+  $('#formId :input').change(function() {
+      alert("got here");
+      if(!edited) {
+        edited = true;
+      }
+  });
+
+  window.onbeforeunload = preventUser();
+
+  function preventUser() {
+    if(edited) {
+      alert("Are you sure?");
+    }
+  }
+});
+</script>
+
 <script>  
 // works.. pops up when tryme button is clicked.
 function myFunction() {
     alert("I am an alert box!");
 }
 </script>
+
+<script>
+/*
+junk............. ............ ............. .........
+
+$(document).ready(function(){
+        window.onbeforeunload = "Are you sure you want to leave?";
+});
+
+$(document).ready(function(){
+  $('input').change(function() {
+      if( $(this).val() != "" )
+          window.onbeforeunload = "Are you sure you want to leave?";
+  });
+});
+
+
+<body onbeforeunload="return 'You have made changes'">
+
+
+
+*/
+</script>
+
 
 
 

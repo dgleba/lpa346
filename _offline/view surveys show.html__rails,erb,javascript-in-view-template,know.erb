@@ -19,39 +19,12 @@
 </div>
 
 
-<script>
-//
-// ?? not works.. asks before leaving edited form..
-//
-// http://stackoverflow.com/questions/16322042/jquery-warn-if-leaving-page-without-clicking-the-save-button
-//
-$(document).ready(function() {
-
-  formmodified=0;
-    $('form *').change(function(){
-        formmodified=1;
-    });
-
-  window.onbeforeunload = confirmExit;
-    function confirmExit() {
-      if (formmodified == 1) {
-          return "New information not saved. Do you wish to leave the page?";
-      }
-  }
-
-  $("input[name='commit']").click(function() {
-      formmodified = 0;
-  });
-  
-});
-</script>
-
-
 
 <br>
 <hr>
 <button onclick="myFunction()"> Tryme:  popup javascript alert for a test</button>
 <p class="tryme2"> Tryme2 </p>
+
 
 
 <script>
@@ -68,6 +41,33 @@ $(document).ready(function(){
     alert("tryme3 ");
 });
 */
+
+</script>
+
+
+<script>
+// no works..
+// ask before leaving edited form..
+
+$(document).ready(function(){
+
+  var edited = false;
+
+  $('#formId :input').change(function() {
+      alert("got here");
+      if(!edited) {
+        edited = true;
+      }
+  });
+
+  window.onbeforeunload = preventUser();
+
+  function preventUser() {
+    if(edited) {
+      alert("Are you sure?");
+    }
+  }
+});
 </script>
 
 <script>  
@@ -76,6 +76,4 @@ function myFunction() {
     alert("I am an alert box!");
 }
 </script>
-
-
 
