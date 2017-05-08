@@ -3,7 +3,7 @@ class Question < ApplicationRecord
   has_many :answers
 
   # Enum for question types..
-  QUESTION_TYPES = [:short_answer, :multiple_choice, :select_part_number]
+  QUESTION_TYPES = [:short_answer, :select_yes_no, :select_part_number, :select_process_step ]
   enum qtype: QUESTION_TYPES
   validates :qtype, inclusion: {in: qtypes.keys }
 

@@ -1,10 +1,13 @@
 <div class="nested-fields">
   <div class="field">
+    <hr style=" height:0px; border:none; color:green; background-color:#333; border-bottom: 4px solid red; " />
     <%= f.label "Title:"%><%= f.text_field :title, class: 'form-control' %>
+  </div>
 
-    <%= f.label "Type:"%><%= f.select :qtype, [
+  <div class="field">
+  <%= f.label "Type:"%><%= f.select :qtype, [
       ["Short Answer", "short_answer"],
-      ["Yes/No", "multiple_choice"],
+      ["Yes/No", "select_yes_no"],
       ["Part Number Select", "select_part_number"]
     ] %>
   </div>

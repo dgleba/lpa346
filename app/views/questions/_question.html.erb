@@ -1,7 +1,8 @@
 <div class="item">
   <div class="well">
     <div class="card card-block">
-      <h6 class="card-title"><%= question.title %></h6>
+      <h5 class="card-title"> <%= question.title %> </h5>
+      <p class="card-title" style=" color:red; "> <%= question.question_note %></p>
 
       <div id="answer">
        
@@ -10,23 +11,25 @@
       </div>
 
       <% if question.qtype == "short_answer"  %>
-        <%= text_field_tag "answers[#{question.id}]", "",  type: 'text' , class: 'form-control'  %>
+        <%= text_field_tag "answers[#{question.id}]", "",  type: 'text' , class: 'form-control' , :required => true %>
         
       <% elsif question.qtype == "select_part_number" %>
         <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(PartNumber.all, :name , :name ) , { :prompt => 'Please Select', :required => true,  :class => 'dgselect2'}  %>
 
- 
-      <% elsif question.qtype == "multiple_choice" %>
+      <% elsif question.qtype == "select_yes_no" %>
         <%= radio_button_tag "answers[#{question.id}][yes_no]", "Yes" %>
         <%= label_tag :yes_label, "Yes" %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <%= radio_button_tag "answers[#{question.id}][yes_no]", "No" %>
         <%= label_tag :no_label, "No" %>
+        <br><br>
         <div>
-          Issue: <%= text_field_tag "answers[#{question.id}][issue_description]"  %>
+          Issue: <%= text_field_tag "answers[#{question.id}][issue_description]" , nil,  type: 'text' , class: 'form-control'  %>
         </div>
         <div>
-          Action Taken: <%= text_field_tag "answers[#{question.id}][action_taken]"  %>
+          Action Taken: <%= text_field_tag "answers[#{question.id}][action_taken]", "",  type: 'text' , class: 'form-control'  %>
         </div>
+        
      <% end %>
     </div>
   </div>
