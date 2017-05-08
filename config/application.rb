@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
 
-module Brail345e
+module LPA346
   class Application < Rails::Application
 
     

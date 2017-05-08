@@ -1,0 +1,55 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-05-07[May-Sun]16-35PM
+
+https://github.com/sferik/rails_admin/wiki/Theming-and-customization
+
+
+
+RailsAdmin uses a sass release of bootstrap for CSS, and bootstrap/jquery-ui for JS.
+
+For custom theming (application scoped), simply override these files in your app:
+
+app/assets/stylesheets/rails_admin/custom/mixins.scss
+app/assets/stylesheets/rails_admin/custom/theming.scss
+app/assets/stylesheets/rails_admin/custom/variables.scss
+app/assets/javascripts/rails_admin/custom/ui.js
+Don't forget to re-compile your assets or simply delete the content of your tmp/cache folder. 
+Some additional steps might be required, as others reported here: 
+https://github.com/sferik/rails_admin/issues/738#issuecomment-26615578
+
+
+in theming.scss...
+
+.col-md-1{
+  width: 99%;
+}
+
+
+
+~~~~
+
+http://stackoverflow.com/questions/28750907/how-to-customize-bootstrap-column-widths
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+https://github.com/sferik/rails_admin/wiki/Horizontally-scrolling-table-with-frozen-columns-in-list-view
+
+
+to make changes take effect.
+
+
+Now be sure to do whatever else might be required in order to get the custom javascript included 
+in your compiled assets, such as bumping your Rails.application.config.assets.version - 
+https://github.com/sferik/rails_admin/issues/738#issuecomment-68483204 - or other things mentioned in that issue.
+
+$ grep -ri Rails.application.config.assets.v
+config/initializers/assets.rb:Rails.application.config.assets.version = "1.1"
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -7,9 +7,12 @@
         <%= hidden_field_tag 'survey_id', @survey.id %>
         <%= render @survey.questions %>
 
-        <%= submit_tag 'Submit Survey', class: "btn btn-info btn-md btn-block"  %>
-        <p><%= link_to "Cancel", surveys_path, class: "btn btn-secondary btn-md btn-block" %></p>
-        <%= link_to "Delete", survey_path(@survey), :method => :delete,
+        <%= submit_tag 'Submit LPA', class: "btn btn-info btn-md btn-block"  %>
+        <br>
+        <br>
+        <br>
+        <p><%= link_to "Cancel", surveys_path, data: {confirm: "Are you sure you want to cancel?"}, class: "btn btn-danger " %></p>
+        <%#= link_to "Delete", survey_path(@survey), :method => :delete,
                                               data: {confirm: "Are you sure you want to delete?"} %>
       <% end %>
     <% end %>
