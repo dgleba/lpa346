@@ -135,3 +135,47 @@ $(document).ready(function(){
 
 
 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-05-08[May-Mon]12-40PM
+
+
+<script>
+//
+// ?? not works.. asks before leaving edited form..
+//
+// http://stackoverflow.com/questions/16322042/jquery-warn-if-leaving-page-without-clicking-the-save-button
+// http://stackoverflow.com/questions/10591378/confirm-leave-page-unless-they-clicked-the-save-button
+// https://blog.driftingruby.com/form-check-modified/
+//
+$(document).ready(function() {
+
+  formmodified=0;
+  
+  $(document).on('change', 'form[role="check-modified"]:not([data-remote]) :input', function()
+      formmodified=1;
+  });
+  
+    $('form *').change(function(){
+        formmodified=1;
+    });
+
+  window.onbeforeunload = confirmExit;
+    function confirmExit() {
+      if (formmodified == 1) {
+          return "New information not saved. Do you wish to leave the page?";
+      }
+  }
+
+  $("input[name='commit']").click(function() {
+      formmodified = 0;
+  });
+  
+});
+</script>
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
