@@ -3,6 +3,7 @@
     <h3 class="survey-title"><%= @survey.title %></h3>
   </header>
     <% if @survey.questions.any? %>
+      <%#  See app/assets/javascripts/anwers.js . prevents leaving an unsaved form by confirmation popup.. %>
       <%= form_tag answers_path,  role: 'check-unsaved-form1',  method: :post do   %>
         <%= hidden_field_tag 'survey_id', @survey.id %>
         <%= render @survey.questions %>
