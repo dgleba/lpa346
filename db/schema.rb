@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 50161230223301) do
+ActiveRecord::Schema.define(version: 50161230223303) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
@@ -81,6 +81,14 @@ ActiveRecord::Schema.define(version: 50161230223301) do
     t.index ["country_of_origin_id"], name: "index_products_on_country_of_origin_id"
   end
 
+  create_table "question_lists", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "sort"
+    t.integer  "active_status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.integer  "survey_id"
@@ -90,6 +98,8 @@ ActiveRecord::Schema.define(version: 50161230223301) do
     t.text     "question_note"
     t.text     "question_whatlookfor"
     t.text     "question_if_no"
+    t.integer  "question_list_id"
+    t.index ["question_list_id"], name: "index_questions_on_question_list_id"
   end
 
   create_table "roles", force: :cascade do |t|

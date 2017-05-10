@@ -1,0 +1,68 @@
+
+<row class="row is-table-row" >
+
+  <div class="col-sm-1 ">
+    <%= link_to 'Create', new_answer_path , class: "btn btn-success"%>
+  </div>
+
+  <div class="col-sm-2 ">
+    <h4>Listing Answers</h4>
+  </div>
+
+  <div class="col-sm-3">
+    <%= search_form_for @q, class: 'search-form' do |f| %>
+      <div class="input-group">
+        <%= f.search_field :body_cont, class: 'form-control' %>
+        <span class="input-group-btn">
+          <button class="btn btn-primary">Search <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4 ">
+    <%= paginate @answers %>
+  </div>
+  
+  <div class="col-sm-2 ">
+    <%= page_entries_info @answers, :entry_name => 'item' %>
+  </div>
+  
+</row>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+            <th>Body</th>
+      <th>User</th>
+      <th>Question</th>
+      <th>Issue description</th>
+      <th>Action taken</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @answers.each do |answer| %>
+      <tr>
+        <td>
+          <div class="btn-group">
+          <%= link_to 'Show', answer, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Edit', edit_answer_path(answer), class: "btn btn-primary", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Destroy', answer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning", :style=>'color:#FFFFFF;' %>
+          </div>
+        </td>
+        
+        <td><%= answer.body %></td>
+        <td><%= answer.user %></td>
+        <td><%= answer.question %></td>
+        <td><%= answer.issue_description %></td>
+        <td><%= answer.action_taken %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

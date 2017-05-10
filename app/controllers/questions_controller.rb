@@ -25,7 +25,7 @@ before_filter :authenticate_user!
     private
 
     def question_params
-      params.require(:question).permit(:title, :survey_id, :user_id)
+      params.require(:question).permit(:title, :question_list_id, :survey_id, :user_id)
     end
 
 end

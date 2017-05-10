@@ -1,0 +1,15 @@
+<%= simple_form_for(@answer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :body %>
+    <%= f.association :user %>
+    <%= f.association :question %>
+    <%= f.input :issue_description %>
+    <%= f.input :action_taken %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-success'%>
+  </div>
+<% end %>

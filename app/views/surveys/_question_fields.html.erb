@@ -5,6 +5,11 @@
   </div>
 
   <div class="field">
+          <%= f.label :question_list_id %>
+          <%= f.collection_select :question_list_id, QuestionList.all, :id, :name,  { prompt: true }, { :class => 'dgselect2' }  %>
+    </div>
+    
+  <div class="field">
   <%= f.label "Type:"%><%= f.select :qtype, [
       ["Short Answer", "short_answer"],
       ["Yes/No", "select_yes_no"],

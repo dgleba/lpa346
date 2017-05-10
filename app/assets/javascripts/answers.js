@@ -9,8 +9,8 @@
 // http://stackoverflow.com/questions/16322042/jquery-warn-if-leaving-page-without-clicking-the-save-button
 // http://stackoverflow.com/questions/10591378/confirm-leave-page-unless-they-clicked-the-save-button
 //
-// see also \\10.4.1.227\rt\srv\share\lpa346\app\assets\javascripts\app,views,pfeatures,_form.html___rails,erb,ask-before-leaving-edited-form-page,javascript-in-view-template,know.erb
-//  I had to put this code in answers.js to get it to run when taking a survey.
+// see also \\10.4.1.227\rt\srv\share\lpa346\docs\app,views,pfeatures,_form.html___rails,erb,ask-before-leaving-edited-form-page,javascript-in-view-template,know.erb
+//   I had to put this code in answers.js to get it to run when taking a survey.
 //
 
 
