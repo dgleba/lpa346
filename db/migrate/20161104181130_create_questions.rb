@@ -1,7 +1,7 @@
 class CreateQuestions < ActiveRecord::Migration[5.0]
   def change
     create_table :questions do |t|
-      t.string :title
+      t.string :title_notused
       t.integer :survey_id
 
       t.timestamps

@@ -4,7 +4,7 @@ class Question < ApplicationRecord
 
   belongs_to :question_list
  
-  def title
+  def name
     # show name in rails_admin association.
     "#{question_list.name}"
   end

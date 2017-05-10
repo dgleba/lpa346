@@ -1,0 +1,1 @@
+    <%# ____= f.label "Title:"%><%= f.text_field :title, class: 'form-control' %>
