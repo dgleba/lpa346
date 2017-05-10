@@ -18,7 +18,7 @@ class Ability
       can :dashboard                  # allow access to dashboard
       can :show_in_app, :all
        can :read, :all 
-      can [ :create, :update, ], [ Answer, PartNumber, ProcessStep, Question, Survey ]
+      can [ :create, :update, ], [ Answer, PartNumber, ProcessStep, Question, Survey, QuestionList ]
       can [ :create, :update, ], [ Product , Pfeature, ProductFeature, CountryOfOrigin  ]
       can [ :destroy, ], [ Product , ProductFeature,  CountryOfOrigin  ]
     
@@ -27,7 +27,7 @@ class Ability
       can :dashboard                  # allow access to dashboard
       can :show_in_app, :all
        # can :read, [  Role, User, ]
-      can :read, [ Product,  Answer, PartNumber, ProcessStep,  Question, Survey]
+      can :read, [ Product,  Answer, PartNumber, ProcessStep,  Question, Survey, QuestionList ]
       can [ :create, :update, ], [ Product, Answer ]
 
     elsif user.lr_future4?
