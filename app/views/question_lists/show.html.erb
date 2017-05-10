@@ -1,0 +1,19 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @question_list.name %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @question_list.sort %>
+</p>
+
+<p>
+  <strong>Active status:</strong>
+  <%= @question_list.active_status %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_question_list_path(@question_list), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
+<%= link_to 'Back', question_lists_path, class: "btn btn-default" %>
