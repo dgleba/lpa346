@@ -18,20 +18,39 @@
         <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(PartNumber.all, :name , :name ) , { :prompt => 'Please Select', :required => true,  :class => 'dgselect2'}  %>
 
       <% elsif question.qtype == "select_yes_no" %>
-        <%= radio_button_tag "answers[#{question.id}][yes_no]", "Yes" %>
+        <%= radio_button_tag "answers[#{question.id}][yes_no]", "Yes",  id:'radio-required-yes' %>
         <%= label_tag :yes_label, "Yes" %>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= radio_button_tag "answers[#{question.id}][yes_no]", "No" %>
+        <%= radio_button_tag "answers[#{question.id}][yes_no]", "No", checked = true ,  id:'radio-required-no' %>
         <%= label_tag :no_label, "No" %>
         <br><br>
         <div>
-          Issue: <%= text_field_tag "answers[#{question.id}][issue_description]" , nil,  type: 'text' , class: 'form-control'  %>
+          Issue: <%= text_field_tag "answers[#{question.id}][issue_description]" , nil,  type: 'text' , class: 'form-control' , id: 'required-if-no'  %>
         </div>
         <div>
-          Action Taken: <%= text_field_tag "answers[#{question.id}][action_taken]", "",  type: 'text' , class: 'form-control'  %>
+          Action Taken: <%= text_field_tag "answers[#{question.id}][action_taken]", "",  type: 'text' , class: 'form-control' , id: 'required-if-no'  %>
         </div>
         
      <% end %>
     </div>
   </div>
 </div>
+
+<script>
+    // https://teamtreehouse.com/community/how-to-require-fields-if-a-certain-radio-button-is-checked
+    $("#radio-required-yes").click(function() {
+        $("#required-if-no").prop("required", false);
+        $("#required-if-no").prop("disabled", true);
+    });
+    $("#radio-required-no").click(function() {
+        $("#required-if-no").prop("required", true);
+        $("#required-if-no").prop("disabled", false);
+        $("#required-if-no").focus();
+    });
+
+    $("#required-if-no").prop("required", true);
+    $("#required-if-no").prop("disabled", false);
+    
+</script>
+
+    
