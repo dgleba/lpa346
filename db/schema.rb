@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 50161230223303) do
+ActiveRecord::Schema.define(version: 50161230223306) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 50161230223303) do
     t.datetime "updated_at",        null: false
     t.text     "issue_description"
     t.text     "action_taken"
+    t.integer  "survey_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["survey_id"], name: "index_answers_on_survey_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
@@ -99,6 +101,8 @@ ActiveRecord::Schema.define(version: 50161230223303) do
     t.text     "question_whatlookfor"
     t.text     "question_if_no"
     t.integer  "question_list_id"
+    t.integer  "active_status",        default: 0
+    t.integer  "sort",                 default: 0
     t.index ["question_list_id"], name: "index_questions_on_question_list_id"
   end
 
@@ -113,9 +117,11 @@ ActiveRecord::Schema.define(version: 50161230223303) do
 
   create_table "surveys", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "user_id"
+    t.integer  "active_status", default: 0
+    t.integer  "sort",          default: 0
   end
 
   create_table "users", force: :cascade do |t|

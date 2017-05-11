@@ -6,7 +6,11 @@ before_filter :authenticate_user!
   #cancancan
   load_and_authorize_resource
 
-    def new
+  def index
+    @questions = Question.all(:order => 'sort')
+  end
+
+  def new
       @survey = Survey.find(params[:survey_id])
       @question = @survey.questions.build
     end

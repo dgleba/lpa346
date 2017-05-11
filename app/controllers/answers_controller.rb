@@ -19,7 +19,8 @@ before_filter :authenticate_user!
             body: answer.to_json,
             issue_description: answer["issue_description"],
             action_taken: answer["action_taken"],
-            user: current_user
+            user: current_user,
+            survey: survey
           })
         end
       end

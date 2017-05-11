@@ -4,9 +4,14 @@ class Question < ApplicationRecord
 
   belongs_to :question_list
  
+  default_scope { order(sort: :asc) }
+ 
   def name
     # show name in rails_admin association.
-    "#{question_list.name}"
+    # if question_list.name.present? 
+      # question_list.name unless question_list.blank?
+    # end  
+    id
   end
  
   def to_s
