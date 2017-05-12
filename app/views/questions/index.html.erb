@@ -1,0 +1,76 @@
+
+<row class="row is-table-row" >
+
+  <div class="col-sm-1 ">
+    <%= link_to 'Create', new_question_path , class: "btn btn-success"%>
+  </div>
+
+  <div class="col-sm-2 ">
+    <h4>Listing Questions</h4>
+  </div>
+
+  <div class="col-sm-3">
+    <%= search_form_for @q, class: 'search-form' do |f| %>
+      <div class="input-group">
+        <%= f.search_field :title_notused_cont, class: 'form-control' %>
+        <span class="input-group-btn">
+          <button class="btn btn-primary">Search <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-4 ">
+    <%= paginate @questions %>
+  </div>
+  
+  <div class="col-sm-2 ">
+    <%= page_entries_info @questions, :entry_name => 'item' %>
+  </div>
+  
+</row>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+            <th>Title notused</th>
+      <th>Survey</th>
+      <th>Qtype</th>
+      <th>Question note</th>
+      <th>Question whatlookfor</th>
+      <th>Question if no</th>
+      <th>Question list</th>
+      <th>Active status</th>
+      <th>Sort</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td>
+          <div class="btn-group">
+          <%= link_to 'Show', question, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Edit', edit_question_path(question), class: "btn btn-primary", :style=>'color:#FFFFFF;' %>
+          <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning", :style=>'color:#FFFFFF;' %>
+          </div>
+        </td>
+        
+        <td><%= question.title_notused %></td>
+        <td><%= question.survey %></td>
+        <td><%= question.qtype %></td>
+        <td><%= question.question_note %></td>
+        <td><%= question.question_whatlookfor %></td>
+        <td><%= question.question_if_no %></td>
+        <td><%= question.question_list %></td>
+        <td><%= question.active_status %></td>
+        <td><%= question.sort %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

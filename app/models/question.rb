@@ -6,7 +6,19 @@ class Question < ApplicationRecord
  
   default_scope { order(sort: :asc) }
  
-  def name
+  def question_name2  
+      "#{question_list.name} " " #{question_list.id}"   
+  end
+
+  def title
+    # show columns contents, not record object like:  #<Vehicle:0x007f343b3f2890> 2016-06-08  Details Edit  Delete
+    # http://stackoverflow.com/questions/4829909/how-do-i-print-out-the-contents-of-an-object-in-rails-for-easy-debugging
+    #"Name:#{self.name} Age:#{self.age} Weight: #{self.weight}"
+    "#{question_list.id} ~ #{question_list.name}"
+  end
+
+  
+  def name_offline
     # show name in rails_admin association.
     # if question_list.name.present? 
       # question_list.name unless question_list.blank?
@@ -18,7 +30,7 @@ class Question < ApplicationRecord
     # show columns contents, not record object like:  #<Vehicle:0x007f343b3f2890> 2016-06-08  Details Edit  Delete
     # http://stackoverflow.com/questions/4829909/how-do-i-print-out-the-contents-of-an-object-in-rails-for-easy-debugging
     #"Name:#{self.name} Age:#{self.age} Weight: #{self.weight}"
-    "#{question_list.name}"
+    "#{question_list.id} - #{question_list.name}"
   end
 
   # Enum for question types..

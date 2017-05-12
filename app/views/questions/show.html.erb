@@ -1,0 +1,49 @@
+
+<p>
+  <strong>Title notused:</strong>
+  <%= @question.title_notused %>
+</p>
+
+<p>
+  <strong>Survey:</strong>
+  <%= @question.survey %>
+</p>
+
+<p>
+  <strong>Qtype:</strong>
+  <%= @question.qtype %>
+</p>
+
+<p>
+  <strong>Question note:</strong>
+  <%= @question.question_note %>
+</p>
+
+<p>
+  <strong>Question whatlookfor:</strong>
+  <%= @question.question_whatlookfor %>
+</p>
+
+<p>
+  <strong>Question if no:</strong>
+  <%= @question.question_if_no %>
+</p>
+
+<p>
+  <strong>Question list:</strong>
+  <%= @question.question_list %>
+</p>
+
+<p>
+  <strong>Active status:</strong>
+  <%= @question.active_status %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @question.sort %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_question_path(@question), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
+<%= link_to 'Back', questions_path, class: "btn btn-default" %>

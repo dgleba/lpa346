@@ -1,6 +1,43 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2017-05-12[May-Fri]11-52AM
+
+https://github.com/blocknotes/rails_admin_material
+
+rake assets:clean
+rake assets:precompile
+
+
+https://github.com/blocknotes/rails_admin_mydash
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
+-----------------------2017-05-12[May-Fri]11-54AM
+
+custom name instead of ID in assocation
+
+
+http://stackoverflow.com/questions/11658281/rails-admin-display-name-instead-of-id
+
+http://stackoverflow.com/questions/11116131/replace-id-with-text-in-rails-admin-associations
+
+
+https://github.com/sferik/rails_admin/issues/2390
+undefined method '+' for nil:NilClass
+
+
+undefined method '+' for nil:NilClass
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2017-05-07[May-Sun]16-35PM
 
 https://github.com/sferik/rails_admin/wiki/Theming-and-customization

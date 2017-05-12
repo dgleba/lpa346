@@ -7,7 +7,10 @@ before_filter :authenticate_user!
   load_and_authorize_resource
 
   def index
-    @questions = Question.all(:order => 'sort')
+    # @questions = Question.all(:order => 'sort')
+    # @questions = Question.all
+    @q = @questions.search params[:q]
+    @questions = @q.result.page(params[:page])
   end
 
   def new
