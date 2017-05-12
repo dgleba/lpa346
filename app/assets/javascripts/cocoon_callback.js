@@ -7,7 +7,7 @@ $(function() {
     .on('cocoon:after-insert', function() {
       $(".dgselect2").select2({
     });
-    });
+  });
    
 });
         

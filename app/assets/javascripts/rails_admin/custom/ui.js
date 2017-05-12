@@ -1,3 +1,5 @@
+//= require rails_admin/themes/material/ui.js
+
 $(document).on('rails_admin.dom_ready', function(){
   var $table = $('#bulk_form').find('table');
   var table = $table[0];

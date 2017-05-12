@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
 
+ENV['RAILS_ADMIN_THEME'] = 'material'
+
 module LPA346
   class Application < Rails::Application
 
