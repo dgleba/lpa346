@@ -198,6 +198,7 @@ GEM
       sass-rails (>= 4.0, < 6)
     rails_admin_material (0.2.0)
       rails_admin (>= 0.8.1)
+    rails_admin_mydash (0.1.8)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (5.0.2)
@@ -316,6 +317,7 @@ DEPENDENCIES
   rails_12factor
   rails_admin
   rails_admin_material
+  rails_admin_mydash
   ransack
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)

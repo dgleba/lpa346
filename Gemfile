@@ -52,7 +52,6 @@ gem 'bootstrap-kaminari-views'
 gem "devise"
 gem 'jwt'
 gem "cancancan"
-gem 'rails_admin'
 gem 'select2-rails'
 gem 'cocoon'
 gem 'bootstrap', '4.0.0.alpha4'
@@ -64,4 +63,8 @@ end
 
 gem 'rails_12factor', group: :production
 gem "devise_ldap_authenticatable", :git => "git://github.com/cschiewek/devise_ldap_authenticatable.git"
+
+gem 'rails_admin'
 gem 'rails_admin_material'
+gem 'rails_admin_mydash'
+#
