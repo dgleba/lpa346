@@ -49,7 +49,9 @@ before_filter :authenticate_user!
   private
 
   def survey_params
-    params.require(:survey).permit(:title, questions_attributes: [:id,  :question_list_id, :title, :qtype, :question_note], 
-          part_numbers_attributes: [:id, :name, :sort, :active_status] )
+    params.require(:survey).permit(:title, 
+        questions_attributes: [ :id, :title_notused, :survey_id, :qtype, :question_note, :question_whatlookfor, 
+          :question_if_no, :question_list_id, :active_status, :sort], 
+        part_numbers_attributes: [:id, :name, :sort, :active_status] )
   end
 end
