@@ -3,35 +3,39 @@ class Question < ApplicationRecord
   has_many :answers
 
   belongs_to :question_list
- 
+
   default_scope { order(sort: :asc) }
- 
-  def question_name2  
-      "#{question_list.name} " " #{question_list.id}"   
+
+  def question_name2
+      "#{question_list.name} " "#{question_list.id}"
   end
 
-  def title
-    # show columns contents, not record object like:  #<Vehicle:0x007f343b3f2890> 2016-06-08  Details Edit  Delete
-    # http://stackoverflow.com/questions/4829909/how-do-i-print-out-the-contents-of-an-object-in-rails-for-easy-debugging
-    #"Name:#{self.name} Age:#{self.age} Weight: #{self.weight}"
-    "#{question_list.id} ~ #{question_list.name}"
-  end
+   def name
+     if question_list.id.present?
+       "#{question_list.id} ~ #{question_list.name}"
+     elsif
+        "mt"
+     end
+   end
 
-  
+
   def name_offline
     # show name in rails_admin association.
-    # if question_list.name.present? 
+    # if question_list.name.present?
       # question_list.name unless question_list.blank?
-    # end  
+    # end
     id
   end
- 
+
   def to_s
     # show columns contents, not record object like:  #<Vehicle:0x007f343b3f2890> 2016-06-08  Details Edit  Delete
     # http://stackoverflow.com/questions/4829909/how-do-i-print-out-the-contents-of-an-object-in-rails-for-easy-debugging
-    #"Name:#{self.name} Age:#{self.age} Weight: #{self.weight}"
-    "#{question_list.id} - #{question_list.name}"
+    # 21  "Name:#{self.name} Age:#{self.age} Weight: #{self.weight}"
+    unless question_list.id.nil? ||  "Mt"
+       "#{question_list.id} - #{question_list.name}"
+    end
   end
+
 
   # Enum for question types..
   QUESTION_TYPES = [:short_answer, :select_yes_no, :select_part_number, :select_process_step ]

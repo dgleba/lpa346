@@ -5,6 +5,14 @@ before_filter :authenticate_user!
   #cancancan
   load_and_authorize_resource
 
+  def index
+    # @questions = Question.all(:order => 'sort')
+    # @questions = Question.all
+    @q = @answers.search params[:q]
+    @answers = @q.result.page(params[:page])
+  end
+
+
   def create
     survey = Survey.find(params[:survey_id])
     if survey
