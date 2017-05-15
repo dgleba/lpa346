@@ -1,8 +1,5 @@
-<div class="border-show-div">
-  <%= form_for([@survey, @question]) do |f| %>
-    <%= f.label :title %>:
-    <%= f.text_field :title, class: 'form-control' %><br />
+<h1>New Question</h1>
 
-    <%= f.submit %>
-  <% end %>
-</div>
+<%= render 'form' %>
+<br>
+<%= link_to 'Back', questions_path, class: "btn btn-default" %>

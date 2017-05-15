@@ -2,13 +2,13 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%#= f.input :title_notused %>
+    <%= f.input :title_notused %>
     <%= f.association :survey %>
     <%= f.input :qtype %>
     <%= f.input :question_note %>
     <%= f.input :question_whatlookfor %>
     <%= f.input :question_if_no %>
-    <%= f.association :question_list, :label_method => lambda { |question_list| "##{question_list.id} -- #{question_list.name}" } %>
+    <%= f.association :question_list %>
     <%= f.input :active_status %>
     <%= f.input :sort %>
   </div>

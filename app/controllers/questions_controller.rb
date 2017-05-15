@@ -18,6 +18,11 @@ before_filter :authenticate_user!
       @question = @survey.questions.build
     end
 
+  # GET /questions/1/edit
+  def edit
+  end
+
+
     def create
       @survey = Survey.find(params[:survey_id])
       @question = Question.new(question_params)
@@ -29,6 +34,19 @@ before_filter :authenticate_user!
       end
     end
 
+  # PATCH/PUT /questions/1
+  def update
+    respond_to do |format|
+      if @question.update(question_params)
+        format.html { redirect_to @question, notice: t('success_update') }
+        format.json { render :show, status: :ok, location: @question }
+      else
+        format.html { render :edit }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+    
     private
 
     def question_params
