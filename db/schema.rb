@@ -85,10 +85,11 @@ ActiveRecord::Schema.define(version: 50161230223306) do
 
   create_table "question_lists", force: :cascade do |t|
     t.string   "name"
+    t.text     "partnumberguide"
     t.integer  "sort"
     t.integer  "active_status"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "questions", force: :cascade do |t|
