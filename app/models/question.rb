@@ -10,13 +10,25 @@ class Question < ApplicationRecord
       "#{question_list.name} " "#{question_list.id}"
   end
 
-   def name
-     if question_list.id.present?
-       "#{question_list.id} ~ #{question_list.name}"
-     elsif
-        "mt"
-     end
-   end
+   # def name
+     # if question_list.id.present?
+       # "#{question_list.id} ~ #{question_list.name}"
+     # elsif
+        # "mt"
+     # end
+   # end
+
+   def title
+    unless question_list.id.nil? ||  "Mt"
+       @question_list.to_json
+    end
+  end
+
+  def title_offline
+    unless question_list.id.nil? ||  "Mt"
+       "#{question_list.id} - #{question_list.name}"
+    end
+  end
 
 
   def name_offline
