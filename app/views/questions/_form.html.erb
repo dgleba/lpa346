@@ -4,7 +4,8 @@
   <div class="form-inputs">
     <%#= f.input :title_notused %>
     <%= f.association :survey %>
-    <%= f.input :qtype %>
+    <%#= commented-out f.input :qtype, collection: Question.qtypes, :selected => Question.qtypes.keys[@question[:qtype].to_i], input_html: { autocomplete: 'off' } %>
+    <%= f.input :qtype, collection: Question.qtypes, input_html: { autocomplete: 'off' } %>
     <%= f.input :question_note %>
     <%= f.input :question_whatlookfor %>
     <%= f.input :question_if_no %>
