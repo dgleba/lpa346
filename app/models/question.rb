@@ -18,7 +18,7 @@ class Question < ApplicationRecord
      # end
    # end
 
-   def name_off2
+  def name_off2
     unless question_list.id.nil? ||  "Mt"
        @question_list.to_json
     end

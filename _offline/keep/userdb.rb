@@ -1,16 +1,15 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable,  and :omniauthable , :timeoutable
-   devise :ldap_authenticatable,
-  #devise :database_authenticatable,
-    :trackable
+  # devise :ldap_authenticatable, :trackable
+  devise :database_authenticatable, :trackable
          #:validatable, :recoverable, :registerable, :rememberable,
 
   #validates :email, presence: true, uniqueness: true, email: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true 
 
   has_many :surveys, dependent: :destroy
-
+ 
 
   def to_s
     # show columns contents, not record object like: 	#<Vehicle:0x007f343b3f2890>	2016-06-08
@@ -36,7 +35,7 @@ class User < ActiveRecord::Base
   def lr_readonly?
     self.role.name == "lr_readonly"
   end
-
+  
   def lr_create?
     self.role.name == "lr_create"
   end
@@ -56,9 +55,9 @@ class User < ActiveRecord::Base
   def lr_seller?
     self.role.name == "lr_seller"
   end
-
-
-
+  
+     
+ 
   private
 
   def password_update?
