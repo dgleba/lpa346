@@ -23,6 +23,7 @@ take the spaces out and one or the other in application.js
 a)
 / / = r equire_tree ../../../vendor/assets/javascripts/.
 b)
+// this one will get the files from app/assets/ not vendor/assets..
 / / = a reyousure/jquery.are-you-sure
 / / = a reyousure/ays-beforeunload-shim
 
