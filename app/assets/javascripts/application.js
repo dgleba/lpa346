@@ -18,3 +18,7 @@
 //= require tether
 //= require bootstrap
 //= require_tree .
+//= require_tree ../../../vendor/assets/javascripts/.
+//= areyousure/jquery.are-you-sure
+//= areyousure/ays-beforeunload-shim
+  
