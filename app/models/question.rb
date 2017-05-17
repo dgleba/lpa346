@@ -10,28 +10,30 @@ class Question < ApplicationRecord
       "#{question_list.name} " "#{question_list.id}"
   end
 
-   # def name
-     # if question_list.id.present?
-       # "#{question_list.id} ~ #{question_list.name}"
-     # elsif
-        # "mt"
-     # end
-   # end
+   def name
+    # prevent nilclass error..
+    #if question_list&.id.present?  # Notice the & lonely operator.  2017-05-16 kwruby Josh Teeter, Andrew Sullivan, and ? I don't know his name.
+    if question_list  #&.id.present? 
+     "#{question_list.id} ~ #{question_list.name}"
+    elsif
+      "mt"
+    end
+   end
 
-  def name_off2
+  def offline_name2
     unless question_list.id.nil? ||  "Mt"
        @question_list.to_json
     end
   end
 
-  def title_offline
+  def offline_title_1
     unless question_list.id.nil? ||  "Mt"
        "#{question_list.id} - #{question_list.name}"
     end
   end
 
 
-  def name_offline
+  def offline_name_offline
     # show name in rails_admin association.
     # if question_list.name.present?
       # question_list.name unless question_list.blank?
@@ -43,8 +45,8 @@ class Question < ApplicationRecord
     # show columns contents, not record object like:  #<Vehicle:0x007f343b3f2890> 2016-06-08  Details Edit  Delete
     # http://stackoverflow.com/questions/4829909/how-do-i-print-out-the-contents-of-an-object-in-rails-for-easy-debugging
     # 21  "Name:#{self.name} Age:#{self.age} Weight: #{self.weight}"
-    unless question_list.id.nil? ||  "Mt"
-       "#{question_list.id} - #{question_list.name}"
+    unless question_list  ||  "Mt"
+       "#{question_list.id} -- #{question_list.name}"
     end
   end
 

@@ -41,11 +41,11 @@ RailsAdmin.config do |config|
     # # history_index
     # # history_show
   # end
-  
+
   config.actions do
     #dashboard                     # mandatory
     # hide disable record count bar graphs, https://github.com/sferik/rails_admin/wiki/Dashboard-action
-    dashboard do    
+    dashboard do
       statistics false
     end
     index                         # mandatory
@@ -65,6 +65,18 @@ RailsAdmin.config do |config|
   # got error.. include_all_fields
   # don't exclude empty fields in show...
   config.compact_show_view = false
- 
+
   
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  #  http://stackoverflow.com/questions/11658281/rails-admin-display-name-instead-of-id
+  # 2017-05-16 kwruby 
+  # see the model for this item as well.
+  config.model 'QuestionList' do
+    object_label_method do
+      :ra_question_list_nameref
+    end
+  end
+
+
 end
