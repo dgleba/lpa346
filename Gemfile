@@ -7,6 +7,7 @@ end
 
 gem 'rails', '~> 5.0.2'
 gem 'dotenv-rails'
+gem 'mysql2'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -34,6 +35,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "yaml_db", :git => "git://github.com/dgleba/yaml_db.git"
+  gem 'seed_dump'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
