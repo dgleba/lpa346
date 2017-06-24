@@ -17,10 +17,11 @@ class Ability
       can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :dashboard                  # allow access to dashboard
       can :show_in_app, :all
-       can :read, :all 
+      # can :read, :all 
+       can :read,  [ Answer, PartNumber, ProcessStep, Question, Survey, QuestionList , User, Role ]
       can [ :create, :update, ], [ Answer, PartNumber, ProcessStep, Question, Survey, QuestionList ]
-      can [ :create, :update, ], [ Product , Pfeature, ProductFeature, CountryOfOrigin  ]
-      can [ :destroy, ], [ Product , ProductFeature,  CountryOfOrigin  ]
+      # can [ :create, :update, ], [ Product , Pfeature, ProductFeature, CountryOfOrigin  ]
+      # can [ :destroy, ], [ Product , ProductFeature,  CountryOfOrigin  ]
       can :export,  :all 
 
     elsif user.lr_regular?
