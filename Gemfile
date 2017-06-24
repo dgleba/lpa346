@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
+gem 'rails', '~> 5.0.2'
+
+gem 'dotenv-rails', :github => "bkeepers/dotenv"
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.0.2'
-gem 'dotenv-rails'
+
 gem 'mysql2'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
@@ -35,8 +38,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "yaml_db", :git => "git://github.com/dgleba/yaml_db.git"
-  gem 'seed_dump'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -45,9 +46,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 gem 'populator'
 gem 'thor', '0.19.1'
-# 
+#
 # https://github.com/twbs/bootstrap-sass
-# 
+#
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'kaminari'
@@ -74,3 +75,7 @@ gem 'rails_admin_mydash'
 #
 gem 'enum_help'
 #
+  gem "yaml_db", :git => "git://github.com/dgleba/yaml_db.git"
+  gem 'seed_dump'
+#
+

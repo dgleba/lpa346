@@ -20,4 +20,3 @@
 //= require_tree .
 //= areyousure/jquery.are-you-sure
 //= areyousure/ays-beforeunload-shim
-  

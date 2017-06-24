@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/bkeepers/dotenv.git
+  revision: a47020f6c414e0a577680b324e61876a690d2200
+  specs:
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
+
+GIT
   remote: git://github.com/cschiewek/devise_ldap_authenticatable.git
   revision: 9f7699d913f715afd4f2a99b80733eda52b1d88a
   specs:
@@ -96,10 +105,6 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
-    dotenv (2.2.1)
-    dotenv-rails (2.2.1)
-      dotenv (= 2.2.1)
-      railties (>= 3.2, < 5.2)
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
     erubis (2.7.0)
@@ -311,7 +316,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise_ldap_authenticatable!
-  dotenv-rails
+  dotenv-rails!
   enum_help
   factory_girl_rails
   faker
