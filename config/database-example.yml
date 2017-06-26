@@ -1,5 +1,5 @@
 # MySQL.  Versions 4.1 and 5.0 are recommended.
-# 
+#
 # Install the MYSQL driver
 #   gem install mysql2
 #
@@ -15,8 +15,13 @@ development:
   reconnect: false
   database: qualitydb
   pool: 5
-  username: <%= ENV['DATABASE_USERNAME'] %>
+
+  username: root
+  #password:
+
+  #  username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
+
   host: localhost
   port: 3306
 
@@ -30,7 +35,7 @@ test:
   database: rail_test
   pool: 5
   username: root
-  password: x
+  password: a
   host: localhost
   port: 3306
 
@@ -40,8 +45,7 @@ production:
   reconnect: false
   database:  qualitydb
   pool: 5
-  username: <%%= ENV['DATABASE_USERNAME'] %>
-  password: <%%= ENV['DATABASE_PASSWORD'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   host: localhost
   port: 3306
-  
