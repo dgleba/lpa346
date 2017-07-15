@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 # Dotenv::Railtie.load
 require 'figaro'
 
+#  https://github.com/rails-sqlserver/activerecord-sqlserver-adapter/issues/568
+# puts ENV.inspect
 
 ENV['RAILS_ADMIN_THEME'] = 'material'
 
@@ -30,6 +32,8 @@ module LPA346
     # end
 
     config.time_zone = 'Eastern Time (US & Canada)'
+    
+    puts ENV.inspect
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
