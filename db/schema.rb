@@ -85,11 +85,11 @@ ActiveRecord::Schema.define(version: 50161230223306) do
 
   create_table "question_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "partnumberguide", limit: 65535
+    t.string   "partnumberguide", limit: 456
     t.integer  "sort"
     t.integer  "active_status"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -139,10 +139,18 @@ ActiveRecord::Schema.define(version: 50161230223306) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.integer  "role_id",                default: 7
+    t.integer  "role_id",                default: 1
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "surveys"
+  add_foreign_key "answers", "users"
+  add_foreign_key "product_features", "pfeatures"
+  add_foreign_key "product_features", "products"
+  add_foreign_key "products", "country_of_origins"
+  add_foreign_key "questions", "question_lists"
+  add_foreign_key "users", "roles"
 end
