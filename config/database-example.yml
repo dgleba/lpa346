@@ -34,8 +34,8 @@ test:
   reconnect: false
   database: rail_test
   pool: 5
-  username: root
-  password: a
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_USERNAME'] %>
   host: localhost
   port: 3306
 

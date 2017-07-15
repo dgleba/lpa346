@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.2'
 
-# gem 'dotenv-rails', :github => "bkeepers/dotenv"
+# gem 'dotenv-rails', :github => "bkeepers/dotenv" # i had trouble getting this to work. see figaro
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -78,4 +78,4 @@ gem 'enum_help'
   gem "yaml_db", :git => "git://github.com/dgleba/yaml_db.git"
   gem 'seed_dump'
 #
-gem 'figaro'
+gem 'figaro' # switched from dotenv
