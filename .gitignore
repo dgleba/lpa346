@@ -14,6 +14,7 @@
 /config/puma.rb
 # add /config/database.yml if it contains passwords
 /config/ldap.yml
+/config/local_env.yml
 /config/database.yml
 /config/secrets.yml
 # Environment files that may contain sensitive data

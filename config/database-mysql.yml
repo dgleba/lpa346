@@ -15,10 +15,8 @@ development:
   reconnect: false
   database: qualitydb
   pool: 5
-#  username: <%= ENV["DATABASE_USERNAME"] %>
-#  password: <%= ENV["DATABASE_PASSWORD"] %>
-  username: dg417
-  password: dg
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
   host: localhost
   port: 3306
 
@@ -42,9 +40,7 @@ production:
   reconnect: false
   database:  qualitydb
   pool: 5
-  # username: <%= ENV['DATABASE_USERNAME'] %>
-  # password: <%= ENV['DATABASE_PASSWORD'] %>
-  username: dg417
-  password: dg
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   host: localhost
   port: 3306

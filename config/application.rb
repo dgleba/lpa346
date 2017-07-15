@@ -7,12 +7,27 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 # Dotenv::Railtie.load
+require 'figaro'
+
 
 ENV['RAILS_ADMIN_THEME'] = 'material'
 
 module LPA346
   class Application < Rails::Application
+  
+    #config # https://github.com/laserlemon/figaro/issues/186
+    
+    # http://railsapps.github.io/rails-environment-variables.html
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'local_env.yml')
+      YAML.load(File.open(env_file)).each do |key, value|
+        ENV[key.to_s] = value
+      end if File.exists?(env_file)
+    end
 
+    # config.before_configuration do
+      # Figaro.load
+    # end
 
     config.time_zone = 'Eastern Time (US & Canada)'
 

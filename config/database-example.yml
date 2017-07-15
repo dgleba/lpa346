@@ -16,10 +16,7 @@ development:
   database: qualitydb
   pool: 5
 
-  username: root
-  #password:
-
-  #  username: <%= ENV['DATABASE_USERNAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
 
   host: localhost
