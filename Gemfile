@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'figaro' # switched from dotenv
 
 gem 'rails', '~> 5.0.2'
 
@@ -78,4 +79,3 @@ gem 'enum_help'
   gem "yaml_db", :git => "git://github.com/dgleba/yaml_db.git"
   gem 'seed_dump'
 #
-gem 'figaro' # switched from dotenv

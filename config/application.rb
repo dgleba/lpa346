@@ -1,3 +1,5 @@
+#srv\web\lpa346\config\application.rb
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -7,12 +9,15 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 # Dotenv::Railtie.load
-require 'figaro'
+# require 'figaro'
 
-#  https://github.com/rails-sqlserver/activerecord-sqlserver-adapter/issues/568
+# https://github.com/rails-sqlserver/activerecord-sqlserver-adapter/issues/568
 # puts ENV.inspect
 
 ENV['RAILS_ADMIN_THEME'] = 'material'
+    
+puts '___1____'
+puts ENV.inspect
 
 module LPA346
   class Application < Rails::Application
@@ -26,6 +31,9 @@ module LPA346
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
+    
+    puts '___2____'
+    puts ENV.inspect
 
     # config.before_configuration do
       # Figaro.load
@@ -33,7 +41,6 @@ module LPA346
 
     config.time_zone = 'Eastern Time (US & Canada)'
     
-    puts ENV.inspect
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
