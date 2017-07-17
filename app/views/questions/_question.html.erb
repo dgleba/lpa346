@@ -17,6 +17,9 @@
       <% elsif question.qtype == "select_part_number" %>
         <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(PartNumber.all, :name , :name ) , { :prompt => 'Please Select', :required => true,  :class => 'dgselect2' , :autocomplete => :off }  %>
 
+      <% elsif question.qtype == "select_process_step" %>
+        <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(ProcessStep.all, :name , :name ) , { :prompt => 'Please Select', :required => true,  :class => 'dgselect2' , :autocomplete => :off }  %>
+
       <% elsif question.qtype == "select_yes_no" %>
         <%= radio_button_tag "answers[#{question.id}][yes_no]", "Yes",  id:'radio-required-yes' %>
         <%= label_tag :yes_label, "Yes" %>

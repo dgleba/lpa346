@@ -4,6 +4,9 @@
  - you may want to do `rake db:reset`
  - you may want to do `rake db:seeder`
 
+### To run it:
+ 
+Check seeds..rb for username and password.
  
 ---
 
