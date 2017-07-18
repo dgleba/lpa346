@@ -1,7 +1,7 @@
 # Installation
 
  - copy example `database.yml`, `secrets.yml`, `application.yml` (figaro env) and edit them.
- - you may want to do `rake db:reset`
+ - you may want to do `rake db:migrate` or  `rake db:reset`
  - you may want to do `rake db:seeder`
 
 ### To run it:
