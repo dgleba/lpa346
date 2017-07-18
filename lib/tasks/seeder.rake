@@ -7,7 +7,7 @@ desc "Run all files in db/seeds directory"
 
 namespace :db do
   task seeder: :environment do
-    Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].each do |filename|
+    Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each do |filename|
       puts "seeding - #{filename}. (see lib/tasks/seeder.rake)"
       load(filename)
     end
