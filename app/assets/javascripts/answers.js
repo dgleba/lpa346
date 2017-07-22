@@ -25,7 +25,7 @@ $(document).ready(function(){
     if (this.value == 'No' && this.checked) {
       $( this ).parent().css( "background-color", "#f2fcfb" );
       $(this).parent().next(".issue_action_fields").show();
-      $(this).parent().next(".issue_action_fields").find('*').prop("required", true).css( "background-color", "#fdffea" );
+      $(this).parent().next(".issue_action_fields").find('*').prop("required", true).css( "background-color", "rgb(255, 255, 250)" );
       //$(this).next(".required-if-no").prop("disabled", true);
 
     } else {
