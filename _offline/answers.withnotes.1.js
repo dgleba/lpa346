@@ -1,47 +1,3 @@
-
-/* global $ */
-
-$(document).ready(function(){
-  // are you sure jquery plugin https://github.com/codedance/jquery.AreYouSure
-  // use https://github.com/codedance/jquery.AreYouSure/blob/master/ays-beforeunload-shim.js for IOS.
-  //
-  $('form').areYouSure();
-  
-  
-  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  //
-  // yes/no question validation. require issue and action if answer is no.
-  //
-  
-  console.log( $(this).val() ); 
-  console.log("answers.js! 721 u");
-  
-  //$(".issue-action-fields").hide();
-  $(".required-if-no").prop("required", true);
-  //$(".required-if-no").prop("disabled", false);
-
-  $("input.c_yesno").change(function() {
-    console.log( $(this).val() ); 
-    if (this.value == 'No' && this.checked) {
-      $( this ).parent().css( "background-color", "#f2fcfb" );
-      $(this).parent().next(".issue_action_fields").show();
-      $(this).parent().next(".issue_action_fields").find('*').prop("required", true).css( "background-color", "#fdffea" );
-      //$(this).next(".required-if-no").prop("disabled", true);
-
-    } else {
-      $( this ).parent().css( "background-color", "#f2ffea" );
-      $(this).parent().next(".issue_action_fields").hide().css( "background-color", "yellow" );
-      $(this).parent().next(".issue_action_fields").find('*').prop("required", false).css( "background-color", "blue" );
-    }
-  });  
-  
-});
-
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 //  2017-05-08_Mon_16.30-PM  didn't load in production after git pull and puma restart. hmmm. copied it manually and it worked. hmm.
 //
 //  asks before leaving page of edited/unsaved form..
@@ -73,9 +29,80 @@ b)
 
 */
 
+/* global $ */
+
+$(document).ready(function(){
+  // are you sure jquery plugin https://github.com/codedance/jquery.AreYouSure
+  // use https://github.com/codedance/jquery.AreYouSure/blob/master/ays-beforeunload-shim.js for IOS.
+  //
+  $('form').areYouSure();
+  
+  console.log( $(this).val() ); 
+  console.log("answers.js! 721 s");
+  
+  //$(".issue-action-fields").hide();
+  $(".required-if-no").prop("required", false);
+  $(".required-if-no").prop("disabled", false);
+
+  $("input.c_yesno").change(function() {
+    console.log( $(this).val() ); 
+    if (this.value == 'No' && this.checked) {
+      //$(".issue-action-fields").show();
+      $( this ).parent().css( "background-color", "red" );
+      $(this).parent().next(".issue_action_fields").show();
+      $(this).parent().next(".issue_action_fields").find('*').prop("required", true).css( "background-color", "blue" );
+      //$(this).parent().next(".issue_action_fields").nextAll('.required-if-no').css( "background-color", "blue" );
+      //$('div.MenuItemSelected').nextAll('.MenuItem:first');  $( this ).parent().next(".required-if-no").css( "background-color", "blue" );
+      //$(this).next(".required-if-no").prop("required", true);
+      //$(this).next(".required-if-no").prop("disabled", true);
+      $(this).css( "background-color", "orange" );
+
+    } else {
+      //$(".issue-action-fields").hide();
+      //$(this).next(".required-if-no").prop("required", false);
+      //$(this).next(".required-if-no").prop("disabled", true);
+      $(this).parent().next(".issue_action_fields").hide().prop("required", false).css( "background-color", "yellow" );
+    }
+  });  
+  
+});
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Other attempts I made below for ios confirm before losing edited form data... 
+
+// $("input[name='radio-required-no']").change(function() {
+// $(".issue-action-fields").toggle
+// });
+// $("input[name='radio-required-no']:checked").change();
+
+    //   jQuery("input[class=radio-required-no]").change(function(){          
+          
+          
+    //       if ($(this).val() == "Yes") {
+    //       jQuery("#issue-action-fields").slideDown()
+    //       }
+    //       else {
+    //       jQuery("#issue-action-fields").slideUp();
+    //       }                                                            
+    // });   
+
+
+// $(".relat__atu").on("change", function(){
+//   $("#issue-action-fields").toggle($(this).hasClass("relat__atu_yes"));
+// });
+
+
+/*
+(function($) {
+    // Enable on all forms
+    $('form').areYouSure();
+})(jQuery);
+*/
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Other attempts I made below... 
 
 // David Gleba 2017-05-16_Tue_10.47-AM
 

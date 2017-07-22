@@ -11,6 +11,7 @@
         <% end %>
       </div>
 
+      <div id="questionset">
       <% if question.qtype == "short_answer"  %>
         <%= text_field_tag "answers[#{question.id}]", "",  type: 'text' , class: 'form-control' , :required => true, :autocomplete => :off %>
         
@@ -21,23 +22,25 @@
         <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(ProcessStep.all, :name , :name ) , { :prompt => 'Please Select', :required => true,  :class => 'dgselect2' , :autocomplete => :off }  %>
 
       <% elsif question.qtype == "select_yes_no" %>
-        <%= radio_button_tag "answers[#{question.id}][yes_no]", "Yes",  class:'radio-required-yes' %>
+        <%= radio_button_tag "answers[#{question.id}][yes_no]", "Yes",  checked = false , {:class => "c_yesno c_yesno-yes"} %>
         <%= label_tag :yes_label, "Yes" %>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= radio_button_tag "answers[#{question.id}][yes_no]", "No", checked = true ,  class:'radio-required-no' %>
+        <%= radio_button_tag "answers[#{question.id}][yes_no]", "No", checked = true , {:class => "c_yesno c_yesno-no"}  %>
         <%= label_tag :no_label, "No" %>
-        <br><br>
+      </div>
+
+      <!--<br><br>-->
+      <div class="issue_action_fields">
         <div>
-          Issue: <%= text_field_tag "answers[#{question.id}][issue_description]" , nil,  type: 'text' , class: 'form-control' , id: 'required-if-no', :autocomplete => :off   %>
+          Issue: <%= text_field_tag "answers[#{question.id}][issue_description]" , nil,  type: 'text' , class: 'form-control required-if-no', :autocomplete => :off   %>
         </div>
         <div>
-          Action Taken: <%= text_field_tag "answers[#{question.id}][action_taken]", "",  type: 'text' , class: 'form-control' , id: 'required-if-no' , :autocomplete => :off  %>
+          Action Taken: <%= text_field_tag "answers[#{question.id}][action_taken]", "",  type: 'text' , class: 'form-control required-if-no' , :autocomplete => :off  %>
         </div>
+      </div>
         
      <% end %>
     </div>
   </div>
 </div>
 
-
-    
