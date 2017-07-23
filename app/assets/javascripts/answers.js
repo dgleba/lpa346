@@ -14,7 +14,7 @@ $(document).ready(function(){
   //
   
   console.log( $(this).val() ); 
-  console.log("answers.js.. 7 23 k");
+  console.log("answers.js.. 7 23 m");
   
   //$(".issue-action-fields").hide();
   $(".required-if-no").prop("required", true);
@@ -23,14 +23,15 @@ $(document).ready(function(){
   $("input.c_yesno").change(function() {
     console.log( $(this).val() ); 
     if (this.value == 'No' && this.checked) {
-      $( this ).parent().css( "background-color", "#f2fcfb" );
+      $( this ).parent().css( "background-color", "rgb(244, 254, 255)" ); //light blue
+      //$( this ).parent().css( "background-color", "Bee Yellow" ); // Can't use color name like this. 
       //$(this).parent().nextALL().find("div.issue_action_fields").show();
       $(this).parent().next("div.issue_action_fields").show();
-      $(this).parent().next(".issue_action_fields").find('*').prop("required", true).css( "background-color", "rgb(255, 255, 245)" );
+      $(this).parent().next(".issue_action_fields").find('*').prop("required", true).css( "background-color", "rgb(255, 255, 245)" ); //light yellow
       //$(this).next(".required-if-no").prop("disabled", true);
 
     } else {
-      $( this ).parent().css( "background-color", "#f2ffea" );
+      $( this ).parent().css( "background-color", "rgb(249, 255, 249)" ); //light green
       $(this).parent().next(".issue_action_fields").hide().css( "background-color", "yellow" );
       $(this).parent().next(".issue_action_fields").find('*').prop("required", false).css( "background-color", "blue" );
     }
