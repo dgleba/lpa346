@@ -22,12 +22,14 @@
 .powenv
 docprivate/
 /shared/
+/deployed/
 /offline/
 db/yamldb/
 db/yamldb_date/
 /db/export
 CI-Lists/
 ldap.yml
+/tar/
 
 # mac stuff..
 
