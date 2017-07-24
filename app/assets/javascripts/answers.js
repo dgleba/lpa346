@@ -14,7 +14,7 @@ $(document).ready(function(){
   //
   
   console.log( $(this).val() ); 
-  console.log("answers.js.. 7 23 p");
+  console.log("answers.js.. 7 24 r");
   
   //$(".issue-action-fields").hide();
   $(".required-if-no").prop("required", true);
