@@ -14,7 +14,7 @@ $(document).ready(function(){
   //
   
   console.log( $(this).val() ); 
-  console.log("answers.js.. 7 23 m");
+  console.log("answers.js.. 7 23 p");
   
   //$(".issue-action-fields").hide();
   $(".required-if-no").prop("required", true);
@@ -35,7 +35,19 @@ $(document).ready(function(){
       $(this).parent().next(".issue_action_fields").hide().css( "background-color", "yellow" );
       $(this).parent().next(".issue_action_fields").find('*').prop("required", false).css( "background-color", "blue" );
     }
-  });  
+  }); 
   
+  
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //
+  // show/hide help texts..
+  //
+  
+  $(".c_whatto_help_txts").hide();
+  $("a.a_whatto_help_txts").click(function(){
+     console.log("answers.js, toggle help .. 7 7 24 g");
+     $(this).next("div.c_whatto_help_txts").slideToggle(300);
+  });
+
 });
 

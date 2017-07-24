@@ -3,9 +3,13 @@
     <div class="card card-block">
       <h5 class="card-title"> <%# commentedout.. = question.title %> </h5>
       <h5 class="card-title"> <%= question.question_list.name %> </h5>
-      <p class="card-title" style=" color:green; "> <%= question.question_note %></p>
-      <p class="card-title" style=" color:blue; "> <%= question.question_whatlookfor %></p>
-      <p class="card-title" style=" color:red; "> <%= question.question_if_no %></p>
+      <p class="card-title c_question_note" style=" color:green; "> <%= question.question_note %></p>
+        
+      <a class="a_whatto_help_txts" style="color:orange; display: inline-block; padding: 0px; margin-bottom: 0.75em;"> <u> What to Look For / What if no ...() </u> </a> 
+      <div class="c_whatto_help_txts">
+        <p class="card-title c_question_whatlookfor" style=" color:blue; "> <%= question.question_whatlookfor %></p>
+        <p class="card-title" style=" color:red; "> <%= question.question_if_no %></p>
+      </div>
 
       <div id="answer">
         <% question.answers.each do |answr| %>
