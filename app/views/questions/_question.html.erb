@@ -3,7 +3,9 @@
     <div class="card card-block">
       <h5 class="card-title"> <%# commentedout.. = question.title %> </h5>
       <h5 class="card-title"> <%= question.question_list.name %> </h5>
-      <p class="card-title" style=" color:red; "> <%= question.question_note %></p>
+      <p class="card-title" style=" color:green; "> <%= question.question_note %></p>
+      <p class="card-title" style=" color:blue; "> <%= question.question_whatlookfor %></p>
+      <p class="card-title" style=" color:red; "> <%= question.question_if_no %></p>
 
       <div id="answer">
         <% question.answers.each do |answr| %>
