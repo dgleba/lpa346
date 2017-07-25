@@ -5,7 +5,7 @@
       <h5 class="card-title"> <%= question.question_list.name %> </h5>
       <p class="card-title c_question_note" style=" color:green; "> <%= question.question_note %></p>
         
-      <a class="a_whatto_help_txts" style="color:orange; display: inline-block; padding: 0px; margin-bottom: 0.75em;"> <u> What to Look For / What if no ...() </u> </a> 
+      <a class="a_whatto_help_txts" style="color:orange; display: inline-block; padding: 0px; margin-bottom: 0.75em;"> <u> What to Look For / What if no ... </u> </a> 
       <div class="c_whatto_help_txts">
         <p class="card-title c_question_whatlookfor" style=" color:blue; "> <%= question.question_whatlookfor %></p>
         <p class="card-title" style=" color:red; "> <%= question.question_if_no %></p>
@@ -16,7 +16,9 @@
         <% end %>
       </div>
 
-      <div id="questionset_a">
+
+    <div class="c_questionset">
+      <div class="c_question_types">
       <% if question.qtype == "short_answer"  %>
         <%= text_field_tag "answers[#{question.id}]", "",  type: 'text' , class: 'form-control' , :required => true, :autocomplete => :off %>
         
@@ -48,6 +50,8 @@
         
      <% end %>
     </div>
+    
   </div>
+</div>
 </div>
 
