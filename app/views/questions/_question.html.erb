@@ -16,7 +16,6 @@
         <% end %>
       </div>
 
-
     <div class="c_questionset">
       <div class="c_question_types">
       <% if question.qtype == "short_answer"  %>
@@ -38,7 +37,7 @@
       </div>
 
       <!--  <br><br> . html Character Entity Reference Chart - &NewLine;  -->
-      
+      <br>
       <div class="issue_action_fields">
         <div>
           Issue: <%= text_field_tag "answers[#{question.id}][issue_description]" , nil, type: 'text', class: 'form-control required-if-no', :autocomplete => :off %>

@@ -14,7 +14,7 @@ $(document).ready(function(){
   //
   
   console.log( $(this).val() ); 
-  console.log("answers.js.. 7 24 r");
+  console.log("answers.js.. 7 25 h");
   
   //$(".issue-action-fields").hide();
   $(".required-if-no").prop("required", true);
@@ -23,17 +23,31 @@ $(document).ready(function(){
   $("input.c_yesno").change(function() {
     console.log( $(this).val() ); 
     if (this.value == 'No' && this.checked) {
+      // show..
       $( this ).parent().css( "background-color", "rgb(244, 254, 255)" ); //light blue
-      //$( this ).parent().css( "background-color", "Bee Yellow" ); // Can't use color name like this. 
-      //$(this).parent().nextALL().find("div.issue_action_fields").show();
-      $(this).parent().next("div.issue_action_fields").show();
-      $(this).parent().next(".issue_action_fields").find('*').prop("required", true).css( "background-color", "rgb(255, 255, 245)" ); //light yellow
+      $(this).closest('div.well').css( "background-color", "beige" );
+      //
+      // use closest to search UP the dom by class and then - some combination of children,nextAll,find,first - to find the item by class within that div...
+      //  https://jsfiddle.net/dgable/ddvb3h0p/
+      //
+      $(this).closest('div.well').children().find("div.issue_action_fields").first().show();
+      //worked only with the next object.. $(this).parent().next("div.issue_action_fields").show();
+      
+      // make required...
+      //$(this).parent().next(".issue_action_fields").find('*').prop("required", true).css( "background-color", "rgb(255, 255, 245)" ); //light yellow
+      $(this).closest('div.well').children().find("div.issue_action_fields").css( "background-color", "peachpuff" ); // color it to see it working.
+      $(this).closest('div.well').children().find("div.issue_action_fields").find('*').prop("required", true).css( "background-color", "rgb(255, 255, 245)"  );
       //$(this).next(".required-if-no").prop("disabled", true);
-
     } else {
+      // hide..
       $( this ).parent().css( "background-color", "rgb(249, 255, 249)" ); //light green
-      $(this).parent().next(".issue_action_fields").hide().css( "background-color", "yellow" );
-      $(this).parent().next(".issue_action_fields").find('*').prop("required", false).css( "background-color", "blue" );
+      $(this).closest('div.well').children().find("div.issue_action_fields").first().hide();
+      //$(this).parent().next(".issue_action_fields").hide().css( "background-color", "yellow" );
+      
+      // make not required..
+      //$(this).parent().next(".issue_action_fields").find('*').prop("required", false).css( "background-color", "blue" );
+      $(this).closest('div.well').children().find("div.issue_action_fields").css( "background-color", "DarkKhaki" ); // color it to see it working.
+      $(this).closest('div.well').children().find("div.issue_action_fields").find('*').prop("required", false); 
     }
   }); 
   
