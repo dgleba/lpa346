@@ -15,6 +15,13 @@ before_filter :authenticate_user!
 
   def create
     survey = Survey.find(params[:survey_id])
+    # created_at will be set to the same time for all answers being written to the db here
+    # so that the created_at represents a response id for this set of answers for this survey by this user
+    # at this time...
+    response_at_1=Time.now - 120 # subtract 120 seconds from the time to show that this time was intentionally set 
+                                 #   - this will be 2 minutes less than updated_at.
+    puts "-------->>>>> response_at_1 will be saved to the db _____!_____ : " + response_at_1.inspect
+    
     if survey
       params[:answers].each_pair do |question_id, answer|
         question = survey.questions.find(question_id)
@@ -30,6 +37,7 @@ before_filter :authenticate_user!
             body: answer["yes_no"],
             issue_description: answer["issue_description"],
             action_taken: answer["action_taken"],
+            created_at: response_at_1,
             user: current_user, survey: survey
           })
         end
