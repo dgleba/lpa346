@@ -26,11 +26,11 @@ before_filter :authenticate_user!
       params[:answers].each_pair do |question_id, answer|
         question = survey.questions.find(question_id)
         if question.present? && question.qtype == "short_answer"
-          question.answers.create({body: answer, user: current_user, survey: survey})
+          question.answers.create({body: answer, created_at: response_at_1, user: current_user, survey: survey})
         elsif question.present? && question.qtype == "select_part_number"
-          question.answers.create({body: answer, user: current_user, survey: survey})
+          question.answers.create({body: answer, created_at: response_at_1, user: current_user, survey: survey})
         elsif question.present? && question.qtype == "select_process_step"
-          question.answers.create({body: answer, user: current_user, survey: survey})
+          question.answers.create({body: answer, created_at: response_at_1, user: current_user, survey: survey})
         elsif question.present? && question.qtype == "select_yes_no"
           question.answers.create({
             # body: answer.to_json,
