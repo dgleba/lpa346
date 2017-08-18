@@ -19,4 +19,5 @@
 //= require bootstrap
 //= require_tree .
 //= areyousure/jquery.are-you-sure
+//= maximize-select2-height_dg/maximizeSelect2Height
 //= areyousure/ays-beforeunload-shim
