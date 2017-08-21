@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 50161230223307) do
+ActiveRecord::Schema.define(version: 50161230223308) do
 
-  create_table "answers", force: :cascade do |t|
-    t.text     "body"
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "body",              limit: 65535
     t.integer  "user_id"
     t.integer  "question_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.text     "issue_description"
-    t.text     "action_taken"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.text     "issue_description", limit: 65535
+    t.text     "action_taken",      limit: 65535
     t.integer  "survey_id"
-    t.index ["question_id"], name: "index_answers_on_question_id"
-    t.index ["survey_id"], name: "index_answers_on_survey_id"
-    t.index ["user_id"], name: "index_answers_on_user_id"
+    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
+    t.index ["survey_id"], name: "index_answers_on_survey_id", using: :btree
+    t.index ["user_id"], name: "index_answers_on_user_id", using: :btree
   end
 
-  create_table "country_of_origins", force: :cascade do |t|
+  create_table "country_of_origins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "fdate"
     t.integer  "active_status"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 50161230223307) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "part_numbers", force: :cascade do |t|
+  create_table "part_numbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "sort"
     t.integer  "active_status"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 50161230223307) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "pfeatures", force: :cascade do |t|
+  create_table "pfeatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "fdate"
     t.integer  "active_status"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 50161230223307) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "process_steps", force: :cascade do |t|
+  create_table "process_steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "sort"
     t.integer  "active_status"
@@ -60,19 +60,7 @@ ActiveRecord::Schema.define(version: 50161230223307) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "product_features", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "product_id"
-    t.integer  "pfeature_id"
-    t.integer  "active_status"
-    t.integer  "sort"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["pfeature_id"], name: "index_product_features_on_pfeature_id"
-    t.index ["product_id"], name: "index_product_features_on_product_id"
-  end
-
-  create_table "products", force: :cascade do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "country_of_origin_id"
     t.datetime "pdate"
@@ -80,10 +68,10 @@ ActiveRecord::Schema.define(version: 50161230223307) do
     t.integer  "sort"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.index ["country_of_origin_id"], name: "index_products_on_country_of_origin_id"
+    t.index ["country_of_origin_id"], name: "index_products_on_country_of_origin_id", using: :btree
   end
 
-  create_table "question_lists", force: :cascade do |t|
+  create_table "question_lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "partnumberguide", limit: 456
     t.integer  "sort"
@@ -92,22 +80,22 @@ ActiveRecord::Schema.define(version: 50161230223307) do
     t.datetime "updated_at",                  null: false
   end
 
-  create_table "questions", force: :cascade do |t|
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title_notused"
     t.integer  "survey_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "qtype",                default: 0
-    t.text     "question_note"
-    t.text     "question_whatlookfor"
-    t.text     "question_if_no"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.integer  "qtype",                              default: 0
+    t.text     "question_note",        limit: 65535
+    t.text     "question_whatlookfor", limit: 65535
+    t.text     "question_if_no",       limit: 65535
     t.integer  "question_list_id"
-    t.integer  "active_status",        default: 0
-    t.integer  "sort",                 default: 0
-    t.index ["question_list_id"], name: "index_questions_on_question_list_id"
+    t.integer  "active_status",                      default: 0
+    t.integer  "sort",                               default: 0
+    t.index ["question_list_id"], name: "index_questions_on_question_list_id", using: :btree
   end
 
-  create_table "roles", force: :cascade do |t|
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "active_status"
@@ -116,7 +104,7 @@ ActiveRecord::Schema.define(version: 50161230223307) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "surveys", force: :cascade do |t|
+  create_table "surveys", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -125,7 +113,7 @@ ActiveRecord::Schema.define(version: 50161230223307) do
     t.integer  "sort",          default: 0
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                       default: "", null: false
     t.string   "encrypted_password",          default: "", null: false
     t.string   "reset_password_token"
@@ -141,9 +129,16 @@ ActiveRecord::Schema.define(version: 50161230223307) do
     t.string   "name"
     t.integer  "role_id",                     default: 1
     t.integer  "auditor_inMSaccess_reporter"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["role_id"], name: "index_users_on_role_id"
+    t.index ["auditor_inMSaccess_reporter"], name: "index_users_on_auditor_inMSaccess_reporter", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "surveys"
+  add_foreign_key "answers", "users"
+  add_foreign_key "products", "country_of_origins"
+  add_foreign_key "questions", "question_lists"
+  add_foreign_key "users", "roles"
 end
