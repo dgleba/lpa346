@@ -269,6 +269,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
+  # 2017-09-29 to fix error on ipad. cannot signout. add :get -- https://stackoverflow.com/questions/41508574/no-route-matches-get-user-sign-out-rails-5 
   config.sign_out_via = [:delete, :get]
 
   # ==> OmniAuth
