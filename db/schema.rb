@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 50161230223308) do
+ActiveRecord::Schema.define(version: 50161230223309) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",              limit: 65535
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 50161230223308) do
     t.integer  "active_status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "part_numbers_process_steps", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "part_number_id",  null: false
+    t.integer "process_step_id", null: false
+    t.index ["part_number_id"], name: "index_part_numbers_process_steps_on_part_number_id", using: :btree
+    t.index ["process_step_id"], name: "index_part_numbers_process_steps_on_process_step_id", using: :btree
   end
 
   create_table "pfeatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
