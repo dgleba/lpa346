@@ -22,7 +22,7 @@
         <%= text_field_tag "answers[#{question.id}]", "",  type: 'text' , class: 'form-control' , :required => true, :autocomplete => :off %>
         
       <% elsif question.qtype == "select_part_number" %>
-        <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(PartNumber.all, :name , :name ) , 
+        <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(PartNumber.all, :name , :full_name ) , 
           { :prompt => 'Please Select', :required => true,  :class => 'dgselect2' , :autocomplete => :off }  %>
 
       <% elsif question.qtype == "select_process_step" %>

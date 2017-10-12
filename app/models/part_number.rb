@@ -4,4 +4,8 @@ class PartNumber < ApplicationRecord
   # part_number.rb
   has_and_belongs_to_many :process_steps, join_table: :part_numbers_process_steps
     
+  def full_name
+   "#{name}, #{description}"
+  end
+  
 end
