@@ -42,7 +42,7 @@ create or replace view vw_basic_audits1 as
 
         FROM answers as a
         left join users as u on a.user_id = u.id
-      GROUP BY Date, Auditor 
+      GROUP BY Date, Auditor, a.created_at 
         having min(survey_id)=8
         ;
         
