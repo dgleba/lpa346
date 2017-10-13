@@ -13,6 +13,7 @@ before_filter :authenticate_user!
   def index
     @q = @audit_counts.search params[:q]
     @audit_counts = @q.result.page(params[:page])
+    @acounts=AuditCount.acount_qry
   end
 
   # GET /audit_counts/1

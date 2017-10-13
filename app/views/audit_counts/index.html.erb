@@ -1,10 +1,6 @@
 
 <row class="row is-table-row" >
 
-  <div class="col-sm-1 ">
-    <%= link_to 'Create', new_audit_count_path , class: "btn btn-success"%>
-  </div>
-
   <div class="col-sm-2 ">
     <h4>Listing Audit Counts</h4>
   </div>
@@ -21,42 +17,28 @@
     <% end %>
   </div>
 
-  <div class="col-sm-4 ">
-    <%= paginate @audit_counts %>
-  </div>
-  
-  <div class="col-sm-2 ">
-    <%= page_entries_info @audit_counts, :entry_name => 'item' %>
-  </div>
-  
 </row>
 
+
+# test index
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th colspan="1"></th>
-            <th>Process step</th>
-      <th>Num audits</th>
+      <th>Name</th>
+      <th>Uppername</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @audit_counts.each do |audit_count| %>
+    <% @acounts.each do |a1| %>
       <tr>
-        <td>
-          <div class="btn-group">
-          <%= link_to 'Show', audit_count, class: "btn btn-info", :style=>'color:#FFFFFF;' %>
-          <%= link_to 'Edit', edit_audit_count_path(audit_count), class: "btn btn-primary", :style=>'color:#FFFFFF;' %>
-          <%= link_to 'Destroy', audit_count, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning", :style=>'color:#FFFFFF;' %>
-          </div>
-        </td>
-        
-        <td><%= audit_count.process_step %></td>
-        <td><%= audit_count.num_audits %></td>
+        <td><%= a1.name %></td>
+        <td><%= a1.upname %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+
 
 <br>

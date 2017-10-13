@@ -3,5 +3,12 @@ class HomeController < ApplicationController
   end
 
   def about
+    
   end
+  
+  def auditcounts
+    
+  end
+  
+  
 end
