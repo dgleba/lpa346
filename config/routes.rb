@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  
 
+  resources :audit_counts
   resources :answers
   resources :questions
   resources :question_lists

@@ -26,7 +26,10 @@ rails generate scaffold Pfeature name:string fdate:datetime active_status:intege
 rails generate scaffold Product name:string country_of_origin:references pdate:datetime active_status:integer sort:integer --no-migration
 rails generate scaffold ProductFeature name:string product:references pfeature:references active_status:integer sort:integer --no-migration
 
-albe@pmdsdata4:/srv/share/lpa346scaf$
+
+
+rails generate scaffold AuditCount  process_step  num_audits:integer --no-migration
+
 
 
 

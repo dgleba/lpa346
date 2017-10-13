@@ -1,0 +1,14 @@
+
+<p>
+  <strong>Process step:</strong>
+  <%= @audit_count.process_step %>
+</p>
+
+<p>
+  <strong>Num audits:</strong>
+  <%= @audit_count.num_audits %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_audit_count_path(@audit_count), class: "btn btn-primary", :style=>'color:#FFFFFF;' %> &nbsp &nbsp
+<%= link_to 'Back', audit_counts_path, class: "btn btn-default" %>

@@ -1,0 +1,2 @@
+class AuditCount < ApplicationRecord
+end
