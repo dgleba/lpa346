@@ -22,11 +22,11 @@
         <%= text_field_tag "answers[#{question.id}]", "",  type: 'text' , class: 'form-control' , :required => true, :autocomplete => :off %>
         
       <% elsif question.qtype == "select_part_number" %>
-        <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(PartNumber.where(active_status: 1), :name , :full_name ) , 
+        <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(PartNumber.where("active_status > 0"), :name , :full_name ) , 
           { :prompt => 'Please Select', :required => true,  :class => 'dgselect2' , :autocomplete => :off }  %>
 
       <% elsif question.qtype == "select_process_step" %>
-        <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(ProcessStep.all, :name , :name ) , 
+        <%= select_tag "answers[#{question.id}]", options_from_collection_for_select(ProcessStep.where("active_status: > 0"), :name , :name ) , 
           { :prompt => 'Please Select', :required => true,  :class => 'dgselect2' , :autocomplete => :off }  %>
 
       <% elsif question.qtype == "select_yes_no" %>

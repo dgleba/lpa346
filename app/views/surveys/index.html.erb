@@ -1,5 +1,5 @@
 <div class="container">
     <div class="row">
-      <%= render @surveys = Survey.order("sort,title") %>
+      <%= render @surveys = Survey.where("active_status > 0").order("sort,title") %>
     </div>
 </div>
