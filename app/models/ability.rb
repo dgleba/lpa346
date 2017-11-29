@@ -5,7 +5,7 @@ class Ability
 
     if user.lr_admin?
       can :manage, :all
-      can :access, :rails_admin       # only allow admin users to access Rails Admin
+      can :access, :rails_admin       
       can :dashboard                  # allow access to dashboard
 
     # remember to add roles to user.rb
@@ -14,7 +14,7 @@ class Ability
     #
 
     elsif user.lr_supervisor?
-      can :access, :rails_admin       # only allow admin users to access Rails Admin
+      can :access, :rails_admin      
       can :dashboard                  # allow access to dashboard
       can :show_in_app, :all
       # can :read, :all 
@@ -25,12 +25,12 @@ class Ability
       can :export,  :all 
 
     elsif user.lr_regular?
-      can :access, :rails_admin       # only allow admin users to access Rails Admin
-      can :dashboard                  # allow access to dashboard
+      can :access, :rails_admin       
+      # can :dashboard                  # allow access to dashboard
       can :show_in_app, :all
-       # can :read, [  Role, User, ]
-      can :read, [ Product,  Answer, PartNumber, ProcessStep,  Question, Survey, QuestionList ]
-      can [ :create, :update, ], [ Product, Answer ]
+      # can :read, [  Role, User, ]
+      can :read, [  Answer, PartNumber, ProcessStep,  Question, Survey, QuestionList ]
+      can [ :create, :update, ], [  Answer ]
       can :export,  :all 
 
     elsif user.lr_future4?
