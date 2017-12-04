@@ -40,6 +40,9 @@ module LPA346
     # end
 
     config.time_zone = 'Eastern Time (US & Canada)'
+    # got error wit this..... config.time_zone = :local
+    config.active_record.default_timezone = :local
+
     
 
     # Settings in config/environments/* take precedence over those specified here.

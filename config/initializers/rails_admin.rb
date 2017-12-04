@@ -1,4 +1,9 @@
 RailsAdmin.config do |config|
+  
+  config.main_app_name = Proc.new {
+    ["LPA346", "(#{Time.zone.now.to_s(:time)})"]
+  }
+  
   config.total_columns_width = 9999999
 
   ### Popular gems integration
