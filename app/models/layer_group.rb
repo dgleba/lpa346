@@ -1,0 +1,3 @@
+class LayerGroup < ApplicationRecord
+  
+end
