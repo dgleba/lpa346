@@ -22,7 +22,9 @@ class User < ActiveRecord::Base
   #validates :email, presence: true, uniqueness: true, email: true
   validates :email, presence: true, uniqueness: true
 
-  has_many :surveys, dependent: :destroy
+  # I think this may have allowed all the basic survey answers and all associated to be deleted 2018-02-06 David Gleba
+  # has_many :surveys, dependent: :destroy
+  has_many :surveys
 
 
   def to_s

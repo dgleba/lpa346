@@ -1,6 +1,9 @@
 class Question < ApplicationRecord
   belongs_to :survey, optional: true
-  has_many :answers, dependent: :destroy
+  
+  # I turned this off after we lost all the answers, questions, and / for the basic survey. 2018-02-06 David Gleba
+  # has_many :answers, dependent: :destroy
+  has_many :answers
 
   belongs_to :question_list
 
