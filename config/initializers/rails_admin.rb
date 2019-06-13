@@ -71,6 +71,42 @@ RailsAdmin.config do |config|
   # don't exclude empty fields in show...
   config.compact_show_view = false
 
+  config.model 'Survey' do
+    edit do
+      exclude_fields :questions
+      fields do
+        help false
+      end
+    end
+    list do
+      exclude_fields  :questions
+    end
+  end  
+
+
+  config.model 'Question' do
+      edit do
+        exclude_fields :answers
+        fields do
+          help false
+        end
+      end
+      list do
+        exclude_fields  :answers
+      end
+    end  
+
+  config.model 'User' do
+      edit do
+        # exclude_fields :versions
+        fields do
+          help false
+        end
+      end
+      list do
+        # exclude_fields  :versions
+      end
+    end  
   
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   

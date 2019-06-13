@@ -6,7 +6,10 @@ class Question < ApplicationRecord
   has_many :answers
 
   belongs_to :question_list
+  validates :question_list, presence: true
 
+  validates :question_note, presence: true
+  
   default_scope { order(sort: :asc) }
 
   def question_name2
